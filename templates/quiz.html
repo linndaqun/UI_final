@@ -1,5 +1,70 @@
 {% extends "layout.html" %}
+<!-- 
+    should include:
+        1. a button to start quiz
+        2. instructions
+            2.1 part 1 instruction
+            2.2 part 2 instruction
+            2.3 how to calculate score
+ -->
 
 {% block content %}
-
+<script>
+    $(document).ready(function(){
+        $("#start_quiz").click(function(){
+            window.location.href = "/quiz/1/part1";
+        })
+    })
+</script>
+<div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="quiz">Quiz</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                Part 1
+            </div>
+            <div class="row instruction">
+                <ul>
+                    <li>Please select ONLY ONE pattern that can be used to solve the puzzle</li>
+                    <li>Please click AT LEAST one cell that helps you determine the pattern</li>
+                    <li>Click to select/unselect a cell</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="row">
+                Part 2
+            </div>
+            <div class="row instruction">
+                <ul>
+                    <li>
+                        Click candidates (in gray) that you think should be eliminated using the pattern
+                    </li>
+                    <li>Click a candidate to make it disappear/reappear</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    Score
+                </div>
+                <div class="row">
+                    For each question sub-question you answer correctly, you will receive one point. You will see 
+                    your total score after answering 6 questions.
+                </div>
+            </div>            
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <button id="start_quiz">Start Quiz</button>
+        </div>
+    </div>
+    
+</div>
 {% endblock %}
