@@ -126,7 +126,7 @@ def quiz():
 
 @app.route('/quiz/<id>/part1', methods=['GET', 'POST'])
 def quiz_part1(id):
-    return render_template('quiz_part1.html')
+    return render_template('quiz_part1.html', id=id)
 
 
 @app.route('/answer/<id>/part1', methods=['GET', 'POST'])
