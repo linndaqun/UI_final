@@ -14,8 +14,14 @@
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 }
-td {
+.candidate{
+    border-color: white;
+    color: gray;
+    width: 10px;
+    height: 10px;
+}
+.cell{
     border: 1px solid;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
 }
