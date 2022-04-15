@@ -29,7 +29,6 @@
                         grid += "<tr>";
                         for ( col1 = 1; col1 <= 3; col1++ ){
                             grid += "<td class='candidate'>";
-                            console.log(count, candidates);
                             if (candidates.includes(count)){
                                 grid += count.toString();
                             }
@@ -54,8 +53,13 @@
             var index = $( "td" ).index( this );
             var row = Math.floor( ( index ) / 5) + 1;
             var col = ( index % 5 ) + 1;
-            $( "span" ).text( "That was row " + row + " and col " + col );
-            $( this ).css( 'background-color', 'red' );
+
+            let bgcolor = $( this ).css( 'background-color');
+            if (bgcolor == 'rgb(255, 0, 0)') {
+                $( this ).css( 'background-color', 'white' );
+            } else {
+                $( this ).css( 'background-color', 'red' );
+            }
         });
     })
 </script>
