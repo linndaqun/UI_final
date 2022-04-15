@@ -11,6 +11,10 @@ def homepage():
 
 @app.route('/learn/<id>', methods=['GET', 'POST'])
 
+@app.route('/quiz', methods=['GET', 'POST'])
+def quiz():
+    return render_template('quiz.html')
+
 @app.route('/quiz/<id>/part1', methods=['GET', 'POST'])
 def quiz_part1():
     return render_template('quiz_part1.html')
