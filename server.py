@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 
 # score of the user
-score = 0
+user_score = 0
 
 # store answers of the user
 user_answers = {
@@ -66,8 +66,9 @@ user_answers = {
 solutions = {
     "1":{
         "part1":{
-            "pattern": "",
-            "cells": [],
+            "pattern": "naked",
+            "cells": ['10', '41'],
+            "correct": 3,
         },
         "part2":{},
     },
@@ -161,17 +162,48 @@ def learn():
 def quiz():
     return render_template('quiz.html')
 
-
-@app.route('/quiz/<id>/part1', methods=['GET', 'POST'])
-def quiz_part1(id):
+@app.route('/quiz/<id>/part1')
+def part1(id):
     for key, value in questions.items():
         if key == str(id):
             question = value
     return render_template('quiz_part1.html', id=id, question=question)
 
+@app.route('/quiz/<id>/part1', methods=['GET', 'POST'])
+def quiz_part1(id):
+    global user_score
+    for key, value in questions.items():
+        if key == str(id):
+            question = value
+    
+    json_data = request.get_json()
+    id = json_data['id']
+    technique = json_data['pattern']
+    cells = json_data['cells']
+    
+    user_answer = user_answers[id]["part1"]
+    user_answer['pattern'] = technique
+    user_answer['cells'] = cells
+    
+    solution = solutions[id]["part1"]
+    correct = 0
+    if solution['pattern'] == technique:
+        correct += 1
+        if len(cells) == len(solution['cells']):
+            for cell in cells:
+                if cell in solution['cells']:
+                    correct += 1
+    if correct == solution['correct']:
+        user_score += 1
+    
+    print(user_score)
+    return render_template('quiz_part1.html', id=id, question=question)
+
 
 @app.route('/answer/<id>/part1', methods=['GET', 'POST'])
 def answer_part1(id):
+    global user_score
+
     for key, value in solutions.items():
         if key == str(id):
             solution = value
