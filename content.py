@@ -9,7 +9,7 @@ home_data = {
     'img_url': 'https://www.learn-sudoku.com/images/sample_puzzle_half.gif',
     'patterns': ['Naked pair', 'Hidden pair', 'X-wing']
 }
-learns = [
+learns_data = [
     {
         'title': 'Naked pair',
         'def': 'Two cells in the same house with exact the same two candidates.',
@@ -21,7 +21,65 @@ learns = [
                 'img_url': '',
                 'title': '',
                 'description': ''
+            },
+            {
+                'img_url': '',
+                'title': '',
+                'description': ''
+            },
+            {
+                'img_url': '',
+                'title': '',
+                'description': ''
             }
         ]
     },
+    {
+        'title': 'Naked pair',
+        'def': 'Two cells in the same house with exact the same two candidates.',
+        'usage': 'Remove these two candidates in other cells in the same house.',
+        'button_text': 'Next',
+        'button_href': '/learn/2',
+        'slides': [
+            {
+                'img_url': '',
+                'title': '',
+                'description': ''
+            },
+            {
+                'img_url': '',
+                'title': '',
+                'description': ''
+            },
+            {
+                'img_url': '',
+                'title': '',
+                'description': ''
+            }
+        ]
+    },
+    {
+        'title': 'Naked pair',
+        'def': 'Two cells in the same house with exact the same two candidates.',
+        'usage': 'Remove these two candidates in other cells in the same house.',
+        'button_text': 'Next',
+        'button_href': '/learn/2',
+        'slides': [
+            {
+                'img_url': '',
+                'title': '',
+                'description': ''
+            },
+            {
+                'img_url': '',
+                'title': '',
+                'description': ''
+            },
+            {
+                'img_url': '',
+                'title': '',
+                'description': ''
+            }
+        ]
+    }
 ]

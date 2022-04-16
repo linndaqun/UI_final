@@ -1,18 +1,19 @@
 from flask import Flask
 from flask import render_template
 from flask import Response, request, jsonify
+from content import *
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def homepage():
-    return render_template('home.html')
+    return render_template('home.html', home=home_data)
 
 
 @app.route('/learn/<learn_id>', methods=['GET', 'POST'])
 def learn(learn_id):
-    return render_template('learn.html')
+    return render_template('learn.html', learn=learns_data[int(learn_id)-1])
 
 
 @app.route('/quiz', methods=['GET', 'POST'])
