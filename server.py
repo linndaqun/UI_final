@@ -6,7 +6,9 @@ app = Flask(__name__)
 
 
 # score of the user
+# +1 if one part is correct, total score is 12
 user_score = 0
+total_score = 12
 
 # store answers of the user
 user_answers = {
@@ -61,8 +63,10 @@ user_answers = {
     "1" "2" "3"
     "4" "5" "6"
     "7" "8" "9"
+    correct is the number of correct answers, sum of 1 + the number of matched cells
     part 2 will be a dictionary with cell number as key, candidate array as value
-        eg. "1": [2, 3, 4]'''
+        eg. "1": ['2', '3', '4']    
+    '''
 solutions = {
     "1":{
         "part1":{
