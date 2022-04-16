@@ -17,20 +17,27 @@
 
 {% block content %}
 <script>
-    function generateGrid( rows, cols ) {
+    let arrangement = {{question.arrangement|tojson}};
+    let candidates = {{question.candidates|tojson}};
+    let format = {{question.format|tojson}};
+    let id = {{id|tojson}};
+
+    function generateGrid() {
         var grid = "<table>";
-        const candidates = [2,4,5,7,9];
-        for ( row = 1; row <= rows; row++ ) {
+        for ( row = 0; row < format[0]; row++ ) {
             grid += "<tr>"; 
-            for ( col = 1; col <= cols; col++ ) {      
-                grid += "<td class='cell'><table>";
+            for ( col = 0; col < format[1]; col++ ) {      
+                grid += "<td class='cell'>"
+                let index = row*format[0] + col;
+                if (arrangement[index] == 0){
+                    let candidate = candidates[index];
+                    grid += "<table>";
                     count = 1;
                     for ( row1 = 1; row1 <= 3; row1++){
                         grid += "<tr>";
                         for ( col1 = 1; col1 <= 3; col1++ ){
                             grid += "<td class='candidate'>";
-                            console.log(count, candidates);
-                            if (candidates.includes(count)){
+                            if (candidate.includes(count)){
                                 grid += count.toString();
                             }
                             grid += "</td>";
@@ -38,7 +45,11 @@
                         }
                         grid += "</tr>";    
                     }
-                grid += "</table></td>";
+                    grid += "</table></td>";
+                } else {
+                    grid += arrangement[index].toString();
+                    grid += "</td>";
+                }   
             }
             grid += "</tr>"; 
         }
@@ -46,41 +57,50 @@
         return grid;
     }
 
-    let id = {{id|tojson}};
     $(document).ready(function(){
-        $( "#tableContainer" ).append( generateGrid( 5, 5) );
+        $( "#tableContainer" ).append( generateGrid() );
 
         $( ".cell" ).click(function() {
             var index = $( "td" ).index( this );
             var row = Math.floor( ( index ) / 5) + 1;
             var col = ( index % 5 ) + 1;
-            $( "span" ).text( "That was row " + row + " and col " + col );
-            $( this ).css( 'background-color', 'red' );
+
+            let bgcolor = $( this ).css( 'background-color');
+            if (bgcolor == 'rgb(255, 0, 0)') {
+                $( this ).css( 'background-color', 'white' );
+            } else {
+                $( this ).css( 'background-color', 'red' );
+            }
         });
+
+        $("#submit").click(function(){
+            if(confirm("Are you sure you want to submit your answers?")){
+                let link = "/answer/" + id.toString() + "/part1";
+                console.log(link);
+                window.location.assign(link);
+            }
+        })
     })
 </script>
 
 <div>
     <div class="row quiz">Question 1 Part 1</div>
     <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <div class="row">
-                1. Select ONLY ONE technique you will use to solve this puzzle
+                1. Select one technique you will use to solve this puzzle
             </div>
-            <div class="row">
-                <button id="naked">Naked Pair</button>
-            </div>
-            <div class="row">
-                <button id="hidden">Hidden Pair</button>
-            </div>
-            <div class="row">
-                <button id="x-wing">X-wing</button>
-            </div>
+            <select name="pattern" id="pattern">
+                <option value="naked">Naked Pair</option>
+                <option value="hidden">Hidden Pair</option>
+                <option value="x-wing">X-wing</option>
+              </select>
         </div>
-        <div class="col-md-8">
+        <div class="col-md-6">
             <div id="tableContainer"></div>
         </div>
     </div>
+    <button id="submit">Submit</button>
 </div>
 
 {% endblock %}
