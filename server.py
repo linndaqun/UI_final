@@ -10,8 +10,8 @@ def homepage():
     return render_template('home.html')
 
 
-@app.route('/learn/<id>', methods=['GET', 'POST'])
-def learn():
+@app.route('/learn/<learn_id>', methods=['GET', 'POST'])
+def learn(learn_id):
     return render_template('learn.html')
 
 
