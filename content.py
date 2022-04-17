@@ -35,11 +35,11 @@ learns_data = [
         ]
     },
     {
-        'title': 'Naked pair',
+        'title': 'Hidden pair',
         'def': 'Two cells in the same house with exact the same two candidates.',
         'usage': 'Remove these two candidates in other cells in the same house.',
         'button_text': 'Next',
-        'button_href': '/learn/2',
+        'button_href': '/learn/3',
         'slides': [
             {
                 'img_url': '',
@@ -59,11 +59,11 @@ learns_data = [
         ]
     },
     {
-        'title': 'Naked pair',
+        'title': 'X-wing',
         'def': 'Two cells in the same house with exact the same two candidates.',
         'usage': 'Remove these two candidates in other cells in the same house.',
         'button_text': 'Next',
-        'button_href': '/learn/2',
+        'button_href': '/learn/1',
         'slides': [
             {
                 'img_url': '',
