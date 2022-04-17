@@ -59,19 +59,18 @@ user_answers = {
 '''
     store correct answer
     pattern: "naked pair" / "hidden pair" / "x-wing"
-    cells: at least one cell numbered from "1" to "9" 
-    "1" "2" "3"
-    "4" "5" "6"
-    "7" "8" "9"
+    cells: correct answer based on its index, index = row_index * row + col_index
     correct is the number of correct answers, sum of 1 + the number of matched cells
+    explanation is the explanation to the answer
     part 2 will be a dictionary with cell number as key, candidate array as value
         eg. "1": ['2', '3', '4']    
     '''
 solutions = {
     "1":{
         "part1":{
-            "pattern": "naked",
-            "cells": ['10', '41'],
+            "pattern": "Naked Pair",
+            "cells": ['1', '5'],
+            "explanation": "There are exactly two candidates in only two cells in the house: 8 and 9 (in red). This is known as Naked Pair",
             "correct": 3,
         },
         "part2":{},
@@ -206,12 +205,11 @@ def quiz_part1(id):
 
 @app.route('/answer/<id>/part1', methods=['GET', 'POST'])
 def answer_part1(id):
-    global user_score
-
     for key, value in solutions.items():
         if key == str(id):
-            solution = value
-    return render_template('quiz_part1_answer.html', id=id, solution=solution)
+            solution = value['part1']
+            question = questions[key]
+    return render_template('quiz_part1_answer.html', id=id, solution=solution, question=question)
 
 
 @app.route('/quiz/<id>/part2', methods=['GET', 'POST'])

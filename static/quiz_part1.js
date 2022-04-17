@@ -79,8 +79,9 @@ $(document).ready(function(){
     $( "#tableContainer" ).append( generateGrid() );
 
     $( ".cell" ).click(function() {
-        var index = $( "td" ).index( this );
-        console.log(index);
+        let myCol = $(this).index();
+        let myRow = $(this).closest('tr').index();
+        let index = myRow * format[0] + myCol;
 
         let bgcolor = $( this ).css( 'background-color');
         if (bgcolor == 'rgb(255, 0, 0)') {

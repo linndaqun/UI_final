@@ -3,7 +3,7 @@
     should include:
         1. a button to submit
             1.1 prompt to double check if submit
-            1.2 double check if quesion1 selects one choice and question 2 selects at least one cell
+            1.2 TODO: double check if quesion1 selects one choice and question 2 selects at least one cell
             1.3 return answer back to backend and direct to answer page
         2. simulate a clickable grid
             2.1 can be 1*9 or 9*1 or 3*3, parameter: row and column
@@ -25,17 +25,21 @@
 <script type="text/javascript" src="{{ url_for('static', filename = 'quiz_part1.js') }}"></script>
 
 <div>
-    <div class="row quiz">Question 1 Part 1</div>
+    <div class="row quiz">Question {{id}} Part 1</div>
+    <div class="row">Progress: {{id}} / 6</div>
     <div class="row">
         <div class="col-md-6">
             <div class="row">
                 1. Select one technique you will use to solve this puzzle
             </div>
             <select name="pattern" id="pattern">
-                <option value="naked">Naked Pair</option>
-                <option value="hidden">Hidden Pair</option>
-                <option value="x-wing">X-wing</option>
+                <option value="Naked Pair">Naked Pair</option>
+                <option value="Hidden Pair">Hidden Pair</option>
+                <option value="X-wing">X-wing</option>
               </select>
+            <div class="row">
+                2. Click AT LEAST one cell that indicates the technique you selected
+            </div>
         </div>
         <div class="col-md-6">
             <div id="tableContainer"></div>
