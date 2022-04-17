@@ -17,4 +17,40 @@
   margin-top: 50px;
   position: absolute;
   left: 50%;
+
+.quiz{
+    text-align: center;
+    font-weight: bolder;
+    font-size: larger;
+}
+.instruction{
+    color: rgb(27, 25, 25);
+}
+#start_quiz{
+    margin-top: 30px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+.candidate{
+    border-color: white;
+    color: gray;
+    width: 10px;
+    height: 10px;
+    font-size: smaller;
+}
+.cell{
+    text-align: center;
+    font-size: larger;
+    border: 1px solid;
+    width: 30px;
+    height: 30px;
+}
+.answer{
+    color: blueviolet;
+}
+.red{
+    background-color: red;
 }
