@@ -1,5 +1,69 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<script>
+    var home = {{home|tojson}}
+    console.log(home)
+</script>
 
+<script type="text/javascript" src="{{ url_for('static', filename = 'home.js') }}"></script>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2> {{ home.title }}</h2>
+        </div>
+        <div class="col-md-6">
+            <h3> Objective:</h3>
+            {{ home.objective }}
+            <br><br>
+            <h3> Terms: </h3>
+            <ul>
+                {% for term1, term2 in home.terms %}
+                    <li>
+                        {{ term1 }}: {{ term2 }}
+                    </li>
+                {% endfor %}
+            </ul>
+
+        </div>
+        <div class="col-md-6">
+            <img src={{ home.img_url }} >
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3">
+            <div class="circle">
+                1
+            </div>
+            <div class="circle-text-below">
+                {{ home.patterns[0] }}
+            </div>
+        </div>
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-3">
+            <div class="circle">
+                2
+            </div>
+            <div class="circle-text-below">
+                {{ home.patterns[1] }}
+            </div>
+
+        </div>
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-2">
+            <div class="circle">
+                3
+            </div>
+            <div class="circle-text-below">
+                {{ home.patterns[2] }}
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <button class="btn btn-primary" id="btn-home-start"> Start to learn </button>
+    </div>
+</div>
 {% endblock %}

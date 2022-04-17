@@ -1,3 +1,23 @@
+.circle {
+  width: 100px;
+  height: 100px;
+  line-height: 100px;
+  border-radius: 50%;
+  font-size: 30px;
+  color: black;
+  text-align: center;
+  background: lightblue;
+}
+
+.circle-text-below{
+  font-size: 25px;
+}
+
+#btn-home-start{
+  margin-top: 50px;
+  position: absolute;
+  left: 50%;
+
 .quiz{
     text-align: center;
     font-weight: bolder;
