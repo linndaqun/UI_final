@@ -18,6 +18,22 @@
     position: absolute;
     left: 50%;
 }
+#block-under-image {
+    background-color: black;
+    height: 9em;
+}
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+    filter: invert(100%);
+}
+
+.carousel-control-prev {
+  margin-left: -50px;
+}
+
+.carousel-control-next {
+  margin-right: -50px;
+}
 .quiz{
     text-align: center;
     font-weight: bolder;
