@@ -18,42 +18,54 @@ user_answers = {
             "pattern": "",
             "cells": [],
         },
-        "part2":{},
+        "part2":{
+            "cells": [],
+        },
     },
     "2":{
         "part1":{
             "pattern": "",
             "cells": [],
         },
-        "part2":{},
+        "part2":{
+            "cells": [],
+        },
     },
     "3":{
         "part1":{
             "pattern": "",
             "cells": [],
         },
-        "part2":{},
+        "part2":{
+            "cells": [],
+        },
     },
     "4":{
         "part1":{
             "pattern": "",
             "cells": [],
         },
-        "part2":{},
+        "part2":{
+            "cells": [],
+        },
     },
     "5":{
         "part1":{
             "pattern": "",
             "cells": [],
         },
-        "part2":{},
+        "part2":{
+            "cells": [],
+        },
     },
     "6":{
         "part1":{
             "pattern": "",
             "cells": [],
         },
-        "part2":{},
+        "part2":{
+            "cells": [],
+        },
     }
 }
 
@@ -76,45 +88,87 @@ solutions = {
         },
         "part2":{
             "pattern": "Naked Pair",
-             "cells": ['0021', '0022', '1021', '1022','1121', '1122','2021', '2022','2121','2122','2221','2222'],
+<<<<<<< HEAD
+            "cells": ['0021', '0022', '1021', '1022','1121', '1122','2021', '2022','2121','2122','2221','2222'],
+            "explanation": "Eliminate all 8s and 9s in other non-red cells",
+            "correct": 12,
+=======
+             "cells": ['0021', '0022', '1021','1022','1121', '1122','2021', '2022','2121','2122','2221','2222'],
              "explanation": "Eliminate all 8s and 9s in other non-red cells",
-             "correct": 3,
+             "correct": 12,
+>>>>>>> 36d7bcd7a7777bd23d76524e7cbbed48718d7733
+        },
+    },
+    "4":{
+        "part1":{
+            "pattern": "Naked Pair",
+            "cells": ['5', '8'],
+            "explanation": "There are exactly two candidates in only two cells in the house: 6 and 7 (in red). This is known as Naked Pair",
+            "correct": 3,
+        },
+        "part2":{
+            "pattern": "Naked Pair",
+            "cells": ['0020', '0412', '0420'],
+            "explanation": "Eliminate all 6s and 7s in other non-red cells",
+            "correct": 3,
+        },
+    },
+    "3":{
+        "part1":{
+            "pattern": "Hidden Pair",
+            "cells": ['4', '6'],
+            "explanation": "There are exactly two candidates that exist in only two cells in the house: 1 and 9 (in red). This is known as Hidden Pair",
+            "correct": 3,
+        },
+        "part2":{
+            "pattern": "Hidden Pair",
+            "cells": ['1112'],
+            "explanation": "eliminate digits other than 1s and 9s in these two cells",
+            "correct": 1,
+
         },
     },
     "2":{
         "part1":{
-            "pattern": "",
-            "cells": [],
+            "pattern": "Hidden Pair",
+            "cells": ['1', '6'],
+            "correct": 6,
+            "explanation": "There are exactly two candidates that exist in only two cells in the house: 2 and 5 (in red). This is known as Hidden Pair",
         },
-        "part2":{},
-    },
-    "3":{
-        "part1":{
-            "pattern": "",
-            "cells": [],
+        "part2":{
+            "pattern": "Hidden Pair",
+            "cells": ['0102', '0110', '0610'],
+            "correct": 3,
+            "explanation": "eliminate digits other than 2s and 5s in these two cells",
         },
-        "part2":{},
-    },
-    "4":{
-        "part1":{
-            "pattern": "",
-            "cells": [],
-        },
-        "part2":{},
     },
     "5":{
         "part1":{
-            "pattern": "",
-            "cells": [],
+            "pattern": "X-wing",
+            "cells": ['12', '16', '52', '48'],
+            "correct": 5,
+            "explanation": "On the 2nd and 6th row, there are only 2 7s and they are on the same column. This is known as X-wing.",
         },
-        "part2":{},
+        "part2":{
+            "pattern": "X-wing",
+            "cells": ['0320', '4320', '7320', '7720', '8320', '8720'],
+            "correct": 6,
+            "explanation": "Eliminate all 7s on the two columns."
+        },
     },
     "6":{
         "part1":{
-            "pattern": "",
-            "cells": [],
+            "pattern": "Hidden Pair",
+            "cells": ['3', '5', '7'],
+            "correct": 4,
+            "explanation":"There are exactly three candidates that exist in only three cells in the house: 2, 5, and 6 (in red). This is known as Hidden Pair/Set",
         },
-        "part2":{},
+        "part2":{
+            "pattern": "Hidden Pair",
+            "cells": ['0300', '0310', '0320', '0321', '0500', '0510', '0521', '0700', '0702', '0710', '0721'],
+            "correct": 11,
+            "explanation": "eliminate digits other than 2s, 5s and 6s in these three cells",
+        },
     }
 }
 
@@ -130,32 +184,47 @@ questions = {
         "candidates": [[5,8,9],[8,9],[],[1,2,4,8,9],[1,2,4,8,9],[8,9],[4,5,6,8,9],[3,4,6,8,9],[3,5,8,9]],
         "format": (3,3),
     },
-    "2":{
-        "arrangement": [],
-        "candidates": [],
-        "format": (),
+    "4":{
+        "arrangement": [0,9,5,3,0,0,2,4,0],
+        "candidates": [[1,7,8],[],[],[],[1,6,7,8],[6,7],[],[],[6,7]],
+        "format": (1,9),
     },
     "3":{
-        "arrangement": [],
-        "candidates": [],
-        "format": (),
+        "arrangement": [0,0,4,0,0,5,0,3,0],
+        "candidates": [[6,7,8],[2,6],[],[2,7],[1,6,9],[],[1,9],[],[2,7,8]],
+        "format": (3,3),
     },
-    "4":{
-        "arrangement": [],
-        "candidates": [],
-        "format": (),
+    "2":{
+        "arrangement": [1,0,6,9,0,8,0,0,0],
+        "candidates": [[],[2,3,4,5],[],[],[3,7],[],[2,4,5],[3,4,7],[4,7]],
+        "format": (1,9),
     },
     "5":{
-        "arrangement": [],
-        "candidates": [],
-        "format": (),
+        "arrangement": 
+        [1,0,0,0,0,0,5,6,9,
+         4,9,2,0,5,6,1,0,8,
+         0,5,6,1,0,9,2,4,0,
+         0,0,9,6,4,0,8,0,1,
+         0,6,4,0,1,0,0,0,0,
+         2,1,8,0,3,5,6,0,4,
+         0,4,0,5,0,0,0,1,6,
+         9,0,5,0,6,1,4,0,2,
+         6,2,1,0,0,0,0,0,5],
+        "candidates": [[],[3,7,8],[3,7],[2,3,4,7,8],[2,7,8],[2,3,4,7,8],[],
+        [],[],[],[],[],[3,7],[],[],[],[3,7],[],[3,7,8],[],[],[],[7,8],[],[],[],[3,7],
+        [3,5,7], [3,7],[],[],[],[2,7],[],[2,5],[],[5,7],[],[],[2,7,8,9],[],[2,7,8],
+        [3,7,9],[2,5],[3,7],[],[],[],[7,9],[],[],[],[7,9],[],[3,7,8],[],[3,7],[],[2,7,8,9],
+        [2,3,7,8],[3,7,9],[],[],[],[3,7,8],[],[3,7,8],[],[],[],[3,7,8],[],[],[],[],[3,4,7,8],
+        [7,8,9],[3,4,7,8],[3,7,9],[3,7,8,9],[]],
+        "format": (9,9),
     },
     "6":{
-        "arrangement": [],
-        "candidates": [],
-        "format": (),
+        "arrangement": [0,0,0,0,0,0,9,0,0],
+        "candidates": [[1,4],[1,3,7],[1,3,4,7],[1,2,4,5,6,7,8],[1,3,4,7,8],[1,2,4,5,6,8],[],[1,2,3,4,6,8],[1,3,4]],
+        "format": (1,9),
     },
 }
+print(len(questions["5"]["candidates"]))
 
 @app.route('/')
 def homepage():
@@ -193,7 +262,7 @@ def quiz_part1(id):
     user_answer = user_answers[id]["part1"]
     user_answer['pattern'] = technique
     user_answer['cells'] = cells
-    
+
     solution = solutions[id]["part1"]
     correct = 0
     if solution['pattern'] == technique:
@@ -220,11 +289,27 @@ def answer_part1(id):
 
 @app.route('/quiz/<id>/part2', methods=['GET', 'POST'])
 def quiz_part2(id):
+    global user_score
     for key, value in solutions.items():
         if key == str(id):
             solution1 = value['part1']
             solution2 = value['part2']
             question = questions[key]
+    if request.method == 'POST':
+        json_data = request.get_json()
+        user_answer = user_answers[id]["part1"]
+        user_answer['cells'] = json_data['cells']
+        solution = solutions[id]["part2"]
+        correct = 0
+
+        if len(user_answer['cells']) == len(solution['cells']):
+            for cell in user_answer['cells']:
+                if cell in solution['cells']:
+                    correct += 1
+        if correct == solution['correct']:
+                user_score += 1
+        print(user_score)
+
     return render_template('quiz_part2.html', id=id, question=question, solution1=solution1, solution2=solution2)
 
 
@@ -233,12 +318,13 @@ def answer_part2(id):
     for key, value in solutions.items():
         if key == str(id):
             solution1 = value['part1']
-            print(solution1)
             solution2 = value['part2']
-            print(solution2)
             question = questions[key]
     return render_template('quiz_part2_answer.html', id=id, solution1=solution1, solution2=solution2, question=question)
 
+@app.route('/score', methods=['GET', 'POST'])
+def score():
+    return render_template("score.html", score=user_score)
 
 if __name__ == '__main__':
     app.run(debug=True)

@@ -47,27 +47,22 @@ function clickEvt (row, col, row1, col1) {
 
     var cell = $('#td'+row+col+row1+col1)[0];
 
-    if (cell.style.color == '' || cell.style.color == 'grey') {
+    if (cell.style.color === '' || cell.style.color === 'grey') {
         cell.style.color = 'white'
+        selectedCells.push(''+row+col+row1+col1)
     } else {
         cell.style.color = 'grey'
+        selectedCells =  selectedCells.filter(function(value, index, arr){
+            return value !== ''+row+col+row1+col1;
+        });
     }
 }
 
 function submitanswer(){
-    let pattern = $("#pattern").val();
-    let select = [];
-
-    for (var index in selectedCells) {
-        if (selectedCells[index]) {
-            select.push(index);
-        }
-    }
 
     let data_to_save = {
         "id": id,
-        "pattern": pattern,
-        "cells": select,
+        "cells": selectedCells,
     }
 
     save(data_to_save);
@@ -92,10 +87,6 @@ function save(new_data){
 }
 
 $(document).ready(function(){
-    for (i = 0; i < format[0]*format[1]; i++) {
-        selectedCells.push(false);
-    }
-
     $( "#tableContainer" ).append( generateGrid() );
     console.log('1\n')
     for ( row = 0; row < format[0]; row++ ) {
