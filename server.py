@@ -88,15 +88,9 @@ solutions = {
         },
         "part2":{
             "pattern": "Naked Pair",
-<<<<<<< HEAD
-            "cells": ['0021', '0022', '1021', '1022','1121', '1122','2021', '2022','2121','2122','2221','2222'],
-            "explanation": "Eliminate all 8s and 9s in other non-red cells",
-            "correct": 12,
-=======
              "cells": ['0021', '0022', '1021','1022','1121', '1122','2021', '2022','2121','2122','2221','2222'],
              "explanation": "Eliminate all 8s and 9s in other non-red cells",
              "correct": 12,
->>>>>>> 36d7bcd7a7777bd23d76524e7cbbed48718d7733
         },
     },
     "4":{
