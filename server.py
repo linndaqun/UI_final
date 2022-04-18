@@ -74,7 +74,12 @@ solutions = {
             "explanation": "There are exactly two candidates in only two cells in the house: 8 and 9 (in red). This is known as Naked Pair",
             "correct": 3,
         },
-        "part2":{},
+        "part2":{
+            "pattern": "Naked Pair",
+             "cells": ['0021', '0022', '1021', '1022','1121', '1122','2021', '2022','2121','2122','2221','2222'],
+             "explanation": "Eliminate all 8s and 9s in other non-red cells",
+             "correct": 3,
+        },
     },
     "2":{
         "part1":{
@@ -215,18 +220,24 @@ def answer_part1(id):
 
 @app.route('/quiz/<id>/part2', methods=['GET', 'POST'])
 def quiz_part2(id):
-    for key, value in questions.items():
+    for key, value in solutions.items():
         if key == str(id):
-            question = value
-    return render_template('quiz_part2.html', id=id, question=question)
+            solution1 = value['part1']
+            solution2 = value['part2']
+            question = questions[key]
+    return render_template('quiz_part2.html', id=id, question=question, solution1=solution1, solution2=solution2)
 
 
-@app.route('/answer/<id>/part1', methods=['GET', 'POST'])
+@app.route('/answer/<id>/part2', methods=['GET', 'POST'])
 def answer_part2(id):
     for key, value in solutions.items():
         if key == str(id):
-            solution=value
-    return render_template('quiz_part2_answer.html', id=id, solution=solution)
+            solution1 = value['part1']
+            print(solution1)
+            solution2 = value['part2']
+            print(solution2)
+            question = questions[key]
+    return render_template('quiz_part2_answer.html', id=id, solution1=solution1, solution2=solution2, question=question)
 
 
 if __name__ == '__main__':
