@@ -15,8 +15,8 @@ $(document).ready(function (){
         };
         let newimg = $("<img class='d-block w-100' alt='...'>")
         let newtext = $("<div class='carousel-caption d-none d-md-block'>")
-        let newtitle = $("<h5>").append(curr["title"])
-        let newdescript = $("<p>").append(curr["description"])
+        let newtitle = $("<h5 style='color:blue;'>").append(curr["title"])
+        let newdescript = $("<p style='color:blue;'>").append(curr["description"])
         newtext.append(newtitle)
         newtext.append(newdescript)
         newimg.attr("src", curr["img_url"])
