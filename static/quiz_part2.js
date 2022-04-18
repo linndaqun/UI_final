@@ -20,7 +20,7 @@ function generateGrid() {
                     for ( col1 = 1; col1 <= 3; col1++ ){
 
                         if (candidate.includes(count)){
-                            grid += `<td class='candidate color' id="td${row}${col}${row1-1}${col1-1}" onclick='clickEvt(${row}, ${col}, ${row1-1}, ${col1-1})'>`;
+                            grid += `<td class='candidate color' id="td${row}${col}${row1-1}${col1-1}">`;
                             grid += count.toString();
                         }else {
                             grid += "<td class='candidate'>";
@@ -41,21 +41,6 @@ function generateGrid() {
     }
     grid += "</table>";
     return grid;
-}
-
-function clickEvt (row, col, row1, col1) {
-
-    var cell = $('#td'+row+col+row1+col1)[0];
-
-    if (cell.style.color === '' || cell.style.color === 'grey') {
-        cell.style.color = 'white'
-        selectedCells.push(''+row+col+row1+col1)
-    } else {
-        cell.style.color = 'grey'
-        selectedCells =  selectedCells.filter(function(value, index, arr){
-            return value !== ''+row+col+row1+col1;
-        });
-    }
 }
 
 function submitanswer(){
@@ -98,8 +83,22 @@ $(document).ready(function(){
                 for ( row1 = 0; row1 < 3; row1++){
                     for ( col1 = 0; col1 < 3; col1++ ){
                         if (candidate.includes(count)){
-                            let cell = $('#td'+row+col+row1+col1)[0];
-                            cell.style.color = 'grey'
+                            $("#td"+row+col+row1+col1).click(function(){
+                                if (this.firstChild.nodeValue === ' ') {
+                                    this.firstChild.nodeValue = (parseInt(this.id[4],10)*3 + parseInt(this.id[5])+1).toString()
+                                    let _this = this
+                                    selectedCells =  selectedCells.filter(function(value, index, arr){
+                                        console.log(_this.id.substr(2,4))
+                                        return value !== _this.id.substr(2,4)
+                                    });
+                                } else {
+                                    this.firstChild.nodeValue = ' '
+                                    selectedCells.push(this.id.substr(2,4))
+                                    console.log(selectedCells)
+                                }
+                            })
+                            // cell.click()
+                            // cell.style.color = 'grey'
                         }
                         count += 1;
                     }
