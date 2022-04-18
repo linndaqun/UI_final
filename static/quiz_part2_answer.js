@@ -50,7 +50,14 @@ $(document).ready(function(){
 
     $( "#tableContainer" ).append( generateGrid() );
     $("#next").click(function(){
-        let link = "/quiz/" + id.toString() + "/part2";
+        let link = "";
+        if (id < 6){
+            let id_int = parseInt(id);
+            link = "/quiz/" + (id_int+1).toString() + "/part1";
+        }
+        else {
+            link = "/score";
+        }
         window.location.assign(link);
     });
 })
