@@ -1,5 +1,35 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<script type="text/javascript" src="{{ url_for('static', filename = 'quiz_part2_answer.js') }}"></script>
 
+<script>
+    let solution1 = {{solution1|tojson}};
+    let solution2 = {{solution2|tojson}};
+    let id = {{id|tojson}};
+    let arrangement = {{question.arrangement|tojson}};
+    let candidates = {{question.candidates|tojson}};
+    let format = {{question.format|tojson}};
+</script>
+<div>
+    <div class="row quiz">Question {{id}} Part 2 Answer</div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                1. The technique to solve this quzzle:
+                <span class="answer">{{solution2.pattern}}</span>
+            </div>
+            <div class="row">
+                2. Cells with green color indicate the correct remove
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="tableContainer"></div>
+        </div>
+    </div>
+    <div class="row">
+        {{solution2.explanation}}
+    </div>
+    <button class="btn btn-primary" id="next">Next Question</button>
+</div>
 {% endblock %}
