@@ -27,32 +27,11 @@
         <div class="col-md-6">
             <div id="carousel-learn" class="carousel slide carousel-fade" data-interval="false" data-ride="carousel">
               <ol class="carousel-indicators">
-                <li data-target="#carousel-learn" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-learn" data-slide-to="1"></li>
-                <li data-target="#carousel-learn" data-slide-to="2"></li>
+                  {% for img_url, title, descript in learn.slides %}
+                    <li data-target="#carousel-learn" data-slide-to="{{ loop.index0 }}" class="active"></li>
+                  {%  endfor %}
               </ol>
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="https://picsum.photos/200" class="d-block w-100" alt="...">
-                    <div class="carousel-caption d-none d-md-block">
-                        <h5>Title</h5>
-                        <p>Description</p>
-                    </div>
-                </div>
-                <div class="carousel-item">
-                  <img src="https://picsum.photos/201" class="d-block w-100" alt="...">
-                  <div class="carousel-caption d-none d-md-block">
-                      <h5>Title</h5>
-                      <p>Description</p>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <img src="https://picsum.photos/202" class="d-block w-100" alt="...">
-                  <div class="carousel-caption d-none d-md-block">
-                      <h5>Title</h5>
-                      <p>Description</p>
-                  </div>
-                </div>
+              <div class="carousel-inner" id="carousel-learn-inner">
               </div>
               <a class="carousel-control-prev" href="#carousel-learn" role="button" data-slide="prev">
                 <span class="carousel-control-prev-icon" aria-hidden="true"></span>

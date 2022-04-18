@@ -18,19 +18,19 @@ learns_data = [
         'button_href': '/learn/2',
         'slides': [
             {
-                'img_url': '',
-                'title': '',
-                'description': ''
+                'img_url': 'https://picsum.photos/200',
+                'title': 'test000',
+                'description': 'test000test000'
             },
             {
-                'img_url': '',
-                'title': '',
-                'description': ''
+                'img_url': 'https://picsum.photos/201',
+                'title': 'test111',
+                'description': 'test111test111'
             },
             {
-                'img_url': '',
-                'title': '',
-                'description': ''
+                'img_url': 'https://picsum.photos/202',
+                'title': 'test222',
+                'description': 'test222test222'
             }
         ]
     },
