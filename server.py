@@ -18,42 +18,54 @@ user_answers = {
             "pattern": "",
             "cells": [],
         },
-        "part2":{},
+        "part2":{
+            "cells": [],
+        },
     },
     "2":{
         "part1":{
             "pattern": "",
             "cells": [],
         },
-        "part2":{},
+        "part2":{
+            "cells": [],
+        },
     },
     "3":{
         "part1":{
             "pattern": "",
             "cells": [],
         },
-        "part2":{},
+        "part2":{
+            "cells": [],
+        },
     },
     "4":{
         "part1":{
             "pattern": "",
             "cells": [],
         },
-        "part2":{},
+        "part2":{
+            "cells": [],
+        },
     },
     "5":{
         "part1":{
             "pattern": "",
             "cells": [],
         },
-        "part2":{},
+        "part2":{
+            "cells": [],
+        },
     },
     "6":{
         "part1":{
             "pattern": "",
             "cells": [],
         },
-        "part2":{},
+        "part2":{
+            "cells": [],
+        },
     }
 }
 
@@ -76,9 +88,9 @@ solutions = {
         },
         "part2":{
             "pattern": "Naked Pair",
-             "cells": ['0021', '0022', '1021', '1022','1121', '1122','2021', '2022','2121','2122','2221','2222'],
+             "cells": ['0021', '0022', '1021','1022','1121', '1122','2021', '2022','2121','2122','2221','2222'],
              "explanation": "Eliminate all 8s and 9s in other non-red cells",
-             "correct": 3,
+             "correct": 12,
         },
     },
     "2":{
@@ -193,7 +205,7 @@ def quiz_part1(id):
     user_answer = user_answers[id]["part1"]
     user_answer['pattern'] = technique
     user_answer['cells'] = cells
-    
+
     solution = solutions[id]["part1"]
     correct = 0
     if solution['pattern'] == technique:
@@ -220,11 +232,27 @@ def answer_part1(id):
 
 @app.route('/quiz/<id>/part2', methods=['GET', 'POST'])
 def quiz_part2(id):
+    global user_score
     for key, value in solutions.items():
         if key == str(id):
             solution1 = value['part1']
             solution2 = value['part2']
             question = questions[key]
+    if request.method == 'POST':
+        json_data = request.get_json()
+        user_answer = user_answers[id]["part1"]
+        user_answer['cells'] = json_data['cells']
+        solution = solutions[id]["part2"]
+        correct = 0
+
+        if len(user_answer['cells']) == len(solution['cells']):
+            for cell in user_answer['cells']:
+                if cell in solution['cells']:
+                    correct += 1
+        if correct == solution['correct']:
+                user_score += 1
+        print(user_score)
+
     return render_template('quiz_part2.html', id=id, question=question, solution1=solution1, solution2=solution2)
 
 
@@ -233,9 +261,7 @@ def answer_part2(id):
     for key, value in solutions.items():
         if key == str(id):
             solution1 = value['part1']
-            print(solution1)
             solution2 = value['part2']
-            print(solution2)
             question = questions[key]
     return render_template('quiz_part2_answer.html', id=id, solution1=solution1, solution2=solution2, question=question)
 
