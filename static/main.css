@@ -52,9 +52,7 @@
 .cell{
     text-align: center;
     font-size: larger;
-    border-style: solid;
-    border-width: 1px;
-    border-color: black;
+    border: 1px solid;
     min-width: 100px;
     min-height: 100px;
     empty-cells: show;
