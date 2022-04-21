@@ -101,6 +101,20 @@ function generateAnswerGrid() {
     return grid;
 }
 
+function review(){
+    let pattern = solution1.pattern;
+    if (pattern == "Naked Pair") {
+        let link = "/learn/1";
+        window.location.assign(link);
+    } else if (pattern == "Hidden Pair") {
+        let link = "/learn/2";
+        window.location.assign(link);
+    } else {
+        let link = "/learn/3";
+        window.location.assign(link);
+    }
+}
+
 $(document).ready(function(){
 
     $( "#correctTableContainer" ).append( generateSolutionGrid() );
@@ -116,4 +130,7 @@ $(document).ready(function(){
         }
         window.location.assign(link);
     });
+    $( "#review" ).click(function(){
+        review();
+    })
 })
