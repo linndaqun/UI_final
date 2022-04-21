@@ -88,7 +88,7 @@ solutions = {
         "part2":{
             "pattern": "Naked Pair",
              "cells": ['0021', '0022', '1021','1022','1121', '1122','2021', '2022','2121','2122','2221','2222'],
-             "explanation": "Eliminate all 8s and 9s in other non-green cells",
+             "explanation": "According to Naked Pair, since only two cells contain exactly two candidates. This means that these two candidates cannot exist in other cells. So that we can eliminate all 8s and 9s in other non-green cells",
              "correct": 12,
         },
     },
@@ -102,7 +102,7 @@ solutions = {
         "part2":{
             "pattern": "Naked Pair",
             "cells": ['0020', '0412', '0420'],
-            "explanation": "Eliminate all 6s and 7s in other non-green cells",
+            "explanation": "According to Naked Pair, since only two cells contain exactly two candidates. This means that these two candidates cannot exist in other cells. So that we can eliminate all 6s and 7s in other non-green cells",
             "correct": 3,
         },
     },
@@ -116,7 +116,7 @@ solutions = {
         "part2":{
             "pattern": "Hidden Pair",
             "cells": ['1112'],
-            "explanation": "eliminate digits other than 1s and 9s in these two cells",
+            "explanation": "According to Hidden Pair, since only two cells contain 1s and 9s, 1s and 9s can only exist in these two cells. Other candidates in these two cells are not feasible, so we can eliminate other candidates.",
             "correct": 1,
 
         },
@@ -132,7 +132,7 @@ solutions = {
             "pattern": "Hidden Pair",
             "cells": ['0102', '0110', '0610'],
             "correct": 3,
-            "explanation": "eliminate digits other than 2s and 5s in these two cells",
+            "explanation": "According to Hidden Pair, since only two cells contain 2s and 5s, 2s and 5s can only exist in these two cells. Other candidates in these two cells are not feasible, so we can eliminate other c.",
         },
     },
     "5":{
@@ -140,13 +140,13 @@ solutions = {
             "pattern": "X-wing",
             "cells": ['12', '16', '52', '48'],
             "correct": 5,
-            "explanation": "On the 2nd and 6th row, there are only 2 7s and they are on the same column. This is known as X-wing.",
+            "explanation": "On the 2nd and 6th row, there are only two 7s and they are on the same column. This is known as X-wing.",
         },
         "part2":{
             "pattern": "X-wing",
             "cells": ['0320', '4320', '7320', '7720', '8320', '8720'],
             "correct": 6,
-            "explanation": "Eliminate all 7s on the two columns."
+            "explanation": "According to X-wing, since there are exactly two 7s on two rows along the same column, 7s must appear on either two of these four cells. Thus, we can eliminate other 7s from other cells."
         },
     },
     "6":{
@@ -160,7 +160,7 @@ solutions = {
             "pattern": "Hidden Pair",
             "cells": ['0300', '0310', '0320', '0321', '0500', '0510', '0521', '0700', '0702', '0710', '0721'],
             "correct": 11,
-            "explanation": "eliminate digits other than 2s, 5s and 6s in these three cells",
+            "explanation": "This is an advanced version of Hidden Pair, known as Hidden Set. According to Hidden Pair, since only three cells contain 2s, 5s and 6s, 2s, 5s and 6s can only exist in these three cells. Other candidates in these three cells are not feasible, so we can eliminate other candidates.",
         },
     }
 }

@@ -86,9 +86,21 @@ function generateAnswerGrid() {
     return grid;
 }
 
+function judgePattern(){
+    if (answer.pattern == solution.pattern){
+        $( "#pattern_feedback").append( "You got this right!" );
+        $( "#pattern_feedback").css("color", "green");
+    }
+    else {
+        $( "#pattern_feedback").append( "You didn't choose the correct pattern, see the following explanation:" );
+        $( "#pattern_feedback").css("color", "red");
+    }
+}
+
 
 $(document).ready(function(){
 
+    judgePattern();
     $( "#tableContainer" ).append( generateAnswerGrid() );
     $( "#correctTableContainer" ).append( generateSolutionGrid() );
     $("#next").click(function(){

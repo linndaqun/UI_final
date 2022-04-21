@@ -15,7 +15,7 @@
 <div>
     <div class="row quiz">Question {{id}} Part 1 Answer</div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="row">
                 1. The technique to solve this quzzle:  
             </div>
@@ -25,28 +25,38 @@
                     {{answer.pattern}}
                 </span>
             </div>
+            <div class="row" id="pattern_feedback"></div>
             <div class="row">
                 The correct answer is:
                 <span class="answer">{{solution.pattern}}</span>
             </div>
-            <br>
-            <div class="row">
-                Explanation: {{solution.explanation}}
-            </div>
         </div>
-        <div class="col-md-6">
+        <div class="row">
+            <br>
+            Explanation: {{solution.explanation}}
+            <br>
+        </div>
+        <div class="col-md-12">
             <div class="row">
                 2. Cells that indicate the correct technique
             </div>
-            <div class="row candidate">(The correct answer is marked in green, and your incorrect answer is marked in red)</div>
-            <div class="row">
-                Your answer is: 
+            <div class="row grey">
+                (The correct answer is marked in green, and your incorrect answer is marked in red)
             </div>
-            <div id="tableContainer"></div>
             <div class="row">
-                The correct answer is:
+                <div class="col-md-12">
+                    <div class="row">
+                        Your answer is: 
+                    </div>
+                    <div id="tableContainer"></div>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        The correct answer is:
+                    </div>
+                    <div id="correctTableContainer"></div>
+                </div>
             </div>
-            <div id="correctTableContainer"></div>
         </div>
     </div>
     <button class="btn btn-primary" id="next">Part 2</button>
