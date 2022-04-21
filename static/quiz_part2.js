@@ -71,6 +71,10 @@ function save(new_data){
     });
 }
 
+function showHint(){
+    $("#hint_text").append(solution2.hint);
+}
+
 $(document).ready(function(){
     $( "#tableContainer" ).append( generateGrid() );
     console.log('1\n')
@@ -115,5 +119,9 @@ $(document).ready(function(){
             let link = "/answer/" + id.toString() + "/part2";
             window.location.assign(link);
         }
+    })
+
+    $("#hint").one("click", function(){
+        showHint();
     })
 })

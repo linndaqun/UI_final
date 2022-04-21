@@ -73,6 +73,10 @@ function save(new_data){
     });
 }
 
+function showHint(){
+    $("#hint_text").append(solution.hint);
+}
+
 $(document).ready(function(){
     for (i = 0; i < format[0]*format[1]; i++) {
         selectedCells.push(false);
@@ -103,5 +107,9 @@ $(document).ready(function(){
             let link = "/answer/" + id.toString() + "/part1";
             window.location.assign(link);
         }
+    })
+
+    $("#hint").one("click", function(){
+        showHint();
     })
 })
