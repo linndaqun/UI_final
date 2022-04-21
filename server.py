@@ -288,7 +288,7 @@ def quiz_part2(id):
             question = questions[key]
     if request.method == 'POST':
         json_data = request.get_json()
-        user_answer = user_answers[id]["part1"]
+        user_answer = user_answers[id]["part2"]
         user_answer['cells'] = json_data['cells']
         solution = solutions[id]["part2"]
         correct = 0
@@ -311,7 +311,8 @@ def answer_part2(id):
             solution1 = value['part1']
             solution2 = value['part2']
             question = questions[key]
-    return render_template('quiz_part2_answer.html', id=id, solution1=solution1, solution2=solution2, question=question)
+            answer = user_answers[key]["part2"]
+    return render_template('quiz_part2_answer.html', id=id, solution1=solution1, solution2=solution2, question=question, answer=answer)
 
 @app.route('/score', methods=['GET', 'POST'])
 def score():

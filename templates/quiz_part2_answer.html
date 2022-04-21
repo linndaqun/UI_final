@@ -10,6 +10,8 @@
     let arrangement = {{question.arrangement|tojson}};
     let candidates = {{question.candidates|tojson}};
     let format = {{question.format|tojson}};
+    let answer = {{answer|tojson}};
+    console.log(answer.cells);
 </script>
 <div>
     <div class="row quiz">Question {{id}} Part 2 Answer</div>
@@ -19,12 +21,22 @@
                 1. The technique to solve this quzzle:
                 <span class="answer">{{solution2.pattern}}</span>
             </div>
+        </div>
+        <div class="col-md-6">
             <div class="row">
                 2. Cells with green color indicate the correct remove
             </div>
-        </div>
-        <div class="col-md-6">
+            <div class="row candidate">
+                (The correct answer is marked in green, and your incorrect answer is marked in red)
+            </div>
+            <div class="row">
+                Your answer is: 
+            </div>
             <div id="tableContainer"></div>
+            <div class="row">
+                The correc answer is:
+            </div>
+            <div id="correctTableContainer"></div>
         </div>
     </div>
     <div class="row">
