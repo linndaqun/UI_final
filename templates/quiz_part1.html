@@ -21,12 +21,15 @@
     let candidates = {{question.candidates|tojson}};
     let format = {{question.format|tojson}};
     let id = {{id|tojson}};
+    let solution = {{solution|tojson}};
 </script>
 <script type="text/javascript" src="{{ url_for('static', filename = 'quiz_part1.js') }}"></script>
 
 <div>
     <div class="row quiz">Question {{id}} Part 1</div>
     <div class="row">Progress: {{id}} / 6</div>
+    <button class="btn btn-primary" id="hint">Give me a hint!</button>
+    <div id="hint_text"></div>
     <div class="row">
         <div class="col-md-12">
             <div class="row">

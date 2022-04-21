@@ -85,12 +85,14 @@ solutions = {
             "cells": ['1', '5'],
             "explanation": "There are exactly two candidates in only two cells in the house: 8 and 9 (in green). This is known as Naked Pair",
             "correct": 3,
+            "hint": "Take a look at candidate 8 and 9! Can you recognize any pattern?",
         },
         "part2":{
             "pattern": "Naked Pair",
-             "cells": ['0021', '0022', '1021','1022','1121', '1122','2021', '2022','2121','2122','2221','2222'],
-             "explanation": "According to Naked Pair, since only two cells contain exactly two candidates. This means that these two candidates cannot exist in other cells. So that we can eliminate all 8s and 9s in other non-green cells",
-             "correct": 12,
+            "cells": ['0021', '0022', '1021','1022','1121', '1122','2021', '2022','2121','2122','2221','2222'],
+            "explanation": "According to Naked Pair, since only two cells contain exactly two candidates. This means that these two candidates cannot exist in other cells. So that we can eliminate all 8s and 9s in other non-green cells",
+            "correct": 12,
+            "hint": "You know that 8s and 9s are Naked Pair in the highlighted cells, can 8s and 9s still exist in other cells?",
         },
     },
     "4":{
@@ -99,12 +101,14 @@ solutions = {
             "cells": ['5', '8'],
             "explanation": "There are exactly two candidates in only two cells in the house: 6 and 7 (in green). This is known as Naked Pair",
             "correct": 3,
+            "hint": "Can you find any two cell that contain exactly two candidates?",
         },
         "part2":{
             "pattern": "Naked Pair",
             "cells": ['0020', '0412', '0420'],
             "explanation": "According to Naked Pair, since only two cells contain exactly two candidates. This means that these two candidates cannot exist in other cells. So that we can eliminate all 6s and 7s in other non-green cells",
             "correct": 3,
+            "hint": "You know that 6s and 7s are Naked Pair in the highlighted cell, can they still exist in other cells?",
         },
     },
     "3":{
@@ -113,12 +117,14 @@ solutions = {
             "cells": ['4', '6'],
             "explanation": "There are exactly two candidates that exist in only two cells in the house: 1 and 9 (in gree). This is known as Hidden Pair",
             "correct": 3,
+            "hint": "Can you find any two candidates that exist and only exist in two cells?",
         },
         "part2":{
             "pattern": "Hidden Pair",
             "cells": ['1112'],
             "explanation": "According to Hidden Pair, since only two cells contain 1s and 9s, 1s and 9s can only exist in these two cells. Other candidates in these two cells are not feasible, so we can eliminate other candidates.",
             "correct": 1,
+            "hint": "You know the highlighted cells are Hidden Pair, which means that only two candidates are feasible in these two cells...",
 
         },
     },
@@ -128,12 +134,14 @@ solutions = {
             "cells": ['1', '6'],
             "correct": 6,
             "explanation": "There are exactly two candidates that exist in only two cells in the house: 2 and 5 (in green). This is known as Hidden Pair",
+            "hint": "Can you find any two candidates that exist in only two cells?",
         },
         "part2":{
             "pattern": "Hidden Pair",
             "cells": ['0102', '0110', '0610'],
             "correct": 3,
             "explanation": "According to Hidden Pair, since only two cells contain 2s and 5s, 2s and 5s can only exist in these two cells. Other candidates in these two cells are not feasible, so we can eliminate other c.",
+            "hint": "You know that 2s and 5s only exist in these two cells, is it possible for other candidates to exist in these cells?",
         },
     },
     "5":{
@@ -142,12 +150,14 @@ solutions = {
             "cells": ['12', '16', '52', '48'],
             "correct": 5,
             "explanation": "On the 2nd and 6th row, there are only two 7s and they are on the same column. This is known as X-wing.",
+            "hint": "Well, this is a hard question! Please be patient. Can you find any candidate that exist twice in two rows/columns? If not, pay attention to 7!"
         },
         "part2":{
             "pattern": "X-wing",
             "cells": ['0320', '4320', '7320', '7720', '8320', '8720'],
             "correct": 6,
-            "explanation": "According to X-wing, since there are exactly two 7s on two rows along the same column, 7s must appear on either two of these four cells. Thus, we can eliminate other 7s from other cells."
+            "explanation": "According to X-wing, since there are exactly two 7s on two rows along the same column, 7s must appear on either two of these four cells. Thus, we can eliminate other 7s from other cells.",
+            "hint": "So 7s exist in two rows along the same column, can 7s still exist in other cells i these two columns?"
         },
     },
     "6":{
@@ -156,12 +166,14 @@ solutions = {
             "cells": ['3', '5', '7'],
             "correct": 4,
             "explanation":"There are exactly three candidates that exist in only three cells in the house: 2, 5, and 6 (in green). This is known as Hidden Pair/Set",
+            "hint": "This is an advanced one! Instead of finding two candidates, can you find three candidates as a set?",
         },
         "part2":{
             "pattern": "Hidden Pair",
             "cells": ['0300', '0310', '0320', '0321', '0500', '0510', '0521', '0700', '0702', '0710', '0721'],
             "correct": 11,
             "explanation": "This is an advanced version of Hidden Pair, known as Hidden Set. According to Hidden Pair, since only three cells contain 2s, 5s and 6s, 2s, 5s and 6s can only exist in these three cells. Other candidates in these three cells are not feasible, so we can eliminate other candidates.",
+            "hint": "Is it possible for other candidates to exist in the highlighted cells besides 2, 5 and 6?"
         },
     }
 }
@@ -246,7 +258,8 @@ def part1(id):
     for key, value in questions.items():
         if key == str(id):
             question = value
-    return render_template('quiz_part1.html', id=id, question=question)
+            solution = solutions[key]["part1"]
+    return render_template('quiz_part1.html', id=id, question=question, solution=solution)
 
 @app.route('/quiz/<id>/part1', methods=['GET', 'POST'])
 def quiz_part1(id):
