@@ -9,6 +9,7 @@ app = Flask(__name__)
 # score of the user
 # +1 if one part is correct, total score is 12
 user_score = 0
+progress = (1, 1)
 
 # store answers of the user
 user_answers = {
@@ -230,7 +231,15 @@ def learn(learn_id):
 
 @app.route('/quiz', methods=['GET', 'POST'])
 def quiz():
-    return render_template('quiz.html')
+    global progress
+    print(progress)
+    if progress[0] == 1 and progress[1] == 1:
+        return render_template('quiz.html')
+    else:
+        if progress[1] == 1:
+            return part1(progress[0])
+        else:
+            return part2(progress[0])
 
 @app.route('/quiz/<id>/part1')
 def part1(id):
@@ -242,6 +251,7 @@ def part1(id):
 @app.route('/quiz/<id>/part1', methods=['GET', 'POST'])
 def quiz_part1(id):
     global user_score
+    global progress
     for key, value in questions.items():
         if key == str(id):
             question = value
@@ -251,11 +261,11 @@ def quiz_part1(id):
     technique = json_data['pattern']
     cells = json_data['cells']
     
-    user_answer = user_answers[id]["part1"]
+    user_answer = user_answers[str(id)]["part1"]
     user_answer['pattern'] = technique
     user_answer['cells'] = cells
 
-    solution = solutions[id]["part1"]
+    solution = solutions[str(id)]["part1"]
     correct = 0
     if solution['pattern'] == technique:
         correct += 1
@@ -265,6 +275,9 @@ def quiz_part1(id):
                     correct += 1
     if correct == solution['correct']:
         user_score += 1
+    
+    progress = (progress[0], 2)
+    print(progress)
     return render_template('quiz_part1.html', id=id, question=question)
 
 
@@ -277,10 +290,20 @@ def answer_part1(id):
             answer = user_answers[key]["part1"]
     return render_template('quiz_part1_answer.html', id=id, solution=solution, question=question, answer=answer)
 
+@app.route('/quiz/<id>/part2')
+def part2(id):
+    global user_score
+    for key, value in solutions.items():
+        if key == str(id):
+            solution1 = value['part1']
+            solution2 = value['part2']
+            question = questions[key]
+    return render_template('quiz_part2.html', id=id, question=question, solution1=solution1, solution2=solution2)
 
 @app.route('/quiz/<id>/part2', methods=['GET', 'POST'])
 def quiz_part2(id):
     global user_score
+    global progress
     for key, value in solutions.items():
         if key == str(id):
             solution1 = value['part1']
@@ -300,7 +323,11 @@ def quiz_part2(id):
         if correct == solution['correct']:
                 user_score += 1
         print(user_score)
-
+    
+    if progress[0] != 6:
+        print(progress)
+        progress = (progress[0]+1, 1)
+        print(progress)
     return render_template('quiz_part2.html', id=id, question=question, solution1=solution1, solution2=solution2)
 
 
