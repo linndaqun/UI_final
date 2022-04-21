@@ -16,31 +16,37 @@
 <div>
     <div class="row quiz">Question {{id}} Part 2 Answer</div>
     <div class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="row">
                 1. The technique to solve this quzzle:
                 <span class="answer">{{solution2.pattern}}</span>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-12">
             <div class="row">
                 2. Cells with green color indicate the correct remove
             </div>
-            <div class="row candidate">
+            <div class="row grey">
                 (The correct answer is marked in green, and your incorrect answer is marked in red)
             </div>
             <div class="row">
-                Your answer is: 
+                <div class="col-md-12">
+                    <div class="row">
+                        Your answer is: 
+                    </div>
+                    <div id="tableContainer"></div>
+                </div>
+                <div class="col-md-12">
+                    <div class="row">
+                        The correc answer is:
+                    </div>
+                    <div id="correctTableContainer"></div>
+                </div>  
             </div>
-            <div id="tableContainer"></div>
-            <div class="row">
-                The correc answer is:
-            </div>
-            <div id="correctTableContainer"></div>
         </div>
     </div>
     <div class="row">
-        {{solution2.explanation}}
+        Explanation: {{solution2.explanation}}
     </div>
     <button class="btn btn-primary" id="next">Next Question</button>
 </div>
