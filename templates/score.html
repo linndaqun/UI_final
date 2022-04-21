@@ -1,5 +1,12 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<script>
+    let score = {{score|tojson}}
+</script>
+
+<div>
+    Your score is {{score}}/12!
+</div>
 
 {% endblock %}

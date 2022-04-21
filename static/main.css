@@ -18,12 +18,10 @@
     position: absolute;
     left: 50%;
 }
-
 #block-under-image {
     background-color: black;
     height: 9em;
 }
-
 .carousel-control-next,
 .carousel-control-prev /*, .carousel-indicators */ {
     filter: invert(100%);
@@ -55,20 +53,38 @@
 .candidate{
     border-color: white;
     color: gray;
-    width: 10px;
-    height: 10px;
+    width: 33%;
+    height: 33%;
     font-size: smaller;
+}
+.cell_table{
+    min-width: 100%;
+    min-height: 100%;
+}
+.empty_cell{
+    min-width: 100%;
+    min-height: 100%;
 }
 .cell{
     text-align: center;
     font-size: larger;
     border: 1px solid;
-    width: 30px;
-    height: 30px;
+    min-width: 100px;
+    min-height: 100px;
+    empty-cells: show;
 }
 .answer{
     color: blueviolet;
 }
 .red{
     background-color: red;
+}
+
+.grey {
+    color: grey;
+}
+
+.green{
+    color: black;
+    background-color: green;
 }

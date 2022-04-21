@@ -1,5 +1,29 @@
 {% extends "layout.html" %}
 
 {% block content %}
+<script>
+    let solution1 = {{solution1|tojson}};
+    let solution2 = {{solution2|tojson}};
+    let arrangement = {{question.arrangement|tojson}};
+    let candidates = {{question.candidates|tojson}};
+    let format = {{question.format|tojson}};
+    let id = {{id|tojson}};
+</script>
+<script type="text/javascript" src="{{ url_for('static', filename = 'quiz_part2.js') }}"></script>
 
+<div>
+    <div class="row quiz">Question {{id}} Part 2</div>
+    <div class="row">Progress: {{id}} / 6</div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="row">
+                For the rest of cells, please click candidates that you think should be eliminated:
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div id="tableContainer"></div>
+        </div>
+    </div>
+    <button class="btn btn-primary" id="submit">Submit</button>
+</div>
 {% endblock %}

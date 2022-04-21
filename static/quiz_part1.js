@@ -1,6 +1,6 @@
 let selectedCells =[];
 function generateGrid() {
-    var grid = "<table>";
+    var grid = "<table class='quizTable'>";
     for ( row = 0; row < format[0]; row++ ) {
         grid += "<tr>"; 
         for ( col = 0; col < format[1]; col++ ) {      
@@ -8,7 +8,7 @@ function generateGrid() {
             let index = row*format[0] + col;
             if (arrangement[index] == 0){
                 let candidate = candidates[index];
-                grid += "<table>";
+                grid += "<table class='cell_table'>";
                 count = 1;
                 for ( row1 = 1; row1 <= 3; row1++){
                     grid += "<tr>";
@@ -16,6 +16,8 @@ function generateGrid() {
                         grid += "<td class='candidate'>";
                         if (candidate.includes(count)){
                             grid += count.toString();
+                        } else {
+                            grid += "<div class='empty_cell'>&nbsp;</div>"
                         }
                         grid += "</td>";
                         count += 1;
