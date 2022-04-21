@@ -7,7 +7,7 @@ function generateGrid() {
             let index = row*format[0] + col;
             let index_str = index.toString();
             if ( solution1.cells.includes(index_str) ) {
-                grid += "<td class='cell red'>";
+                grid += "<td class='cell green'>";
             } else {
                 grid += "<td class='cell'>";
             }
