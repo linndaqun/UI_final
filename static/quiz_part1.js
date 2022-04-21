@@ -86,11 +86,11 @@ $(document).ready(function(){
         let index = myRow * format[0] + myCol;
 
         let bgcolor = $( this ).css( 'background-color');
-        if (bgcolor == 'rgb(255, 0, 0)') {
+        if (bgcolor == 'rgb(0, 255, 0)') {
             $( this ).css( 'background-color', 'white' );
             selectedCells[index] = false;
         } else {
-            $( this ).css( 'background-color', 'red' );
+            $( this ).css( 'background-color', 'green' );
             selectedCells[index] = true;
         }
     });

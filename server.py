@@ -9,7 +9,6 @@ app = Flask(__name__)
 # score of the user
 # +1 if one part is correct, total score is 12
 user_score = 0
-total_score = 12
 
 # store answers of the user
 user_answers = {
@@ -83,13 +82,13 @@ solutions = {
         "part1":{
             "pattern": "Naked Pair",
             "cells": ['1', '5'],
-            "explanation": "There are exactly two candidates in only two cells in the house: 8 and 9 (in red). This is known as Naked Pair",
+            "explanation": "There are exactly two candidates in only two cells in the house: 8 and 9 (in green). This is known as Naked Pair",
             "correct": 3,
         },
         "part2":{
             "pattern": "Naked Pair",
              "cells": ['0021', '0022', '1021','1022','1121', '1122','2021', '2022','2121','2122','2221','2222'],
-             "explanation": "Eliminate all 8s and 9s in other non-red cells",
+             "explanation": "Eliminate all 8s and 9s in other non-green cells",
              "correct": 12,
         },
     },
@@ -97,13 +96,13 @@ solutions = {
         "part1":{
             "pattern": "Naked Pair",
             "cells": ['5', '8'],
-            "explanation": "There are exactly two candidates in only two cells in the house: 6 and 7 (in red). This is known as Naked Pair",
+            "explanation": "There are exactly two candidates in only two cells in the house: 6 and 7 (in green). This is known as Naked Pair",
             "correct": 3,
         },
         "part2":{
             "pattern": "Naked Pair",
             "cells": ['0020', '0412', '0420'],
-            "explanation": "Eliminate all 6s and 7s in other non-red cells",
+            "explanation": "Eliminate all 6s and 7s in other non-green cells",
             "correct": 3,
         },
     },
@@ -111,7 +110,7 @@ solutions = {
         "part1":{
             "pattern": "Hidden Pair",
             "cells": ['4', '6'],
-            "explanation": "There are exactly two candidates that exist in only two cells in the house: 1 and 9 (in red). This is known as Hidden Pair",
+            "explanation": "There are exactly two candidates that exist in only two cells in the house: 1 and 9 (in gree). This is known as Hidden Pair",
             "correct": 3,
         },
         "part2":{
@@ -127,7 +126,7 @@ solutions = {
             "pattern": "Hidden Pair",
             "cells": ['1', '6'],
             "correct": 6,
-            "explanation": "There are exactly two candidates that exist in only two cells in the house: 2 and 5 (in red). This is known as Hidden Pair",
+            "explanation": "There are exactly two candidates that exist in only two cells in the house: 2 and 5 (in green). This is known as Hidden Pair",
         },
         "part2":{
             "pattern": "Hidden Pair",
@@ -155,7 +154,7 @@ solutions = {
             "pattern": "Hidden Pair",
             "cells": ['3', '5', '7'],
             "correct": 4,
-            "explanation":"There are exactly three candidates that exist in only three cells in the house: 2, 5, and 6 (in red). This is known as Hidden Pair/Set",
+            "explanation":"There are exactly three candidates that exist in only three cells in the house: 2, 5, and 6 (in green). This is known as Hidden Pair/Set",
         },
         "part2":{
             "pattern": "Hidden Pair",
@@ -218,7 +217,6 @@ questions = {
         "format": (1,9),
     },
 }
-print(len(questions["5"]["candidates"]))
 
 @app.route('/')
 def homepage():
@@ -267,8 +265,6 @@ def quiz_part1(id):
                     correct += 1
     if correct == solution['correct']:
         user_score += 1
-    
-    print(user_score)
     return render_template('quiz_part1.html', id=id, question=question)
 
 
@@ -278,7 +274,8 @@ def answer_part1(id):
         if key == str(id):
             solution = value['part1']
             question = questions[key]
-    return render_template('quiz_part1_answer.html', id=id, solution=solution, question=question)
+            answer = user_answers[key]["part1"]
+    return render_template('quiz_part1_answer.html', id=id, solution=solution, question=question, answer=answer)
 
 
 @app.route('/quiz/<id>/part2', methods=['GET', 'POST'])
