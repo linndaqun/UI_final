@@ -11,14 +11,18 @@
 <script type="text/javascript" src="{{ url_for('static', filename = 'learn.js') }}"></script>
 
 <div class="container">
+    {% autoescape off %}
     <div class="row">
         <div class="col-md-6">
             <h2> {{ learn.title }}</h2>
-            <h3> What is it?</h3>
+            <h3> What is it</h3>
             {{ learn.def }}
             <br><br>
             <h3> How to use it</h3>
             {{ learn.usage }}
+            <br><br>
+            <h3> Why can we use it</h3>
+            {{ learn.why }}
             <br><br>
             <div class="row">
                 <button class="btn btn-primary" id="btn-learn-next"> {{ learn.button_text}} </button>
@@ -44,5 +48,6 @@
             </div>
         </div>
     </div>
+    {% endautoescape %}
 </div>
 {% endblock %}
