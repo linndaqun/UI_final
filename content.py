@@ -12,8 +12,11 @@ home_data = {
 learns_data = [
     {
         'title': 'Naked pair',
-        'def': 'Two cells in the same house with exact the same two candidates.',
-        'usage': 'Remove these two candidates in other cells in the same house.',
+        'def': 'Two cells in the same house <b>with and only with</b> the same 2 candidates.',
+        'usage': 'Remove these 2 candidates in <b>other cells in the same house</b>.',
+        'why': """Two cells in the same house only have the same 2 candidates &rarr;<br>
+                  These 2 candidates have to be in these 2 cells &rarr;<br>
+                  Other cells cannot have these 2 candidates, so remove them.""",
         'button_text': 'Next',
         'button_href': '/learn/2',
         'slides': [
@@ -36,8 +39,15 @@ learns_data = [
     },
     {
         'title': 'Hidden pair',
-        'def': 'A Hidden Pair is basically just a "buried" Naked Pair. It occurs when two candidates appear in exactly two cells within the same house.',
+        'def': 'A Hidden Pair is basically just a "buried" Naked Pair. It occurs when two candidates <b>appear and only appear</b> in two cells within the same house.',
         'usage': 'Erase all the other candidates in the two cells.',
+        'why': """
+            The two candidates only appear in two cells in the same house &rarr;<br>
+            These 2 candidates have to be in these 2 cells &rarr;<br>
+            Other candidates in these two cells can be removed.<br><br>
+            If we put Naked pair and Hidden pair together, we can conclude that:<br>
+            Within the same house, <br>if <b>2 cells only have the same 2 candidates (naked pair)</b> or <b>the 2 candidates only appear in 2 cells (hidden pair)</b>, <br>then these 2 candidates have to be in these 2 cells, <br>so we can remove <b>these 2 candidates in other cells</b> or <b>other candidates in these two cells</b><br>
+            <b>Actually, when the number 2 extend to 3 or more, the strategy still holds!</b>""",
         'button_text': 'Next',
         'button_href': '/learn/3',
         'slides': [
@@ -60,8 +70,13 @@ learns_data = [
     },
     {
         'title': 'X-wing',
-        'def': 'A row (column) that contains the same candidate in exactly two spots, as well as another parallel row (column) that mirrors it — containing the same candidate which forms a rectangle with the previous 2 spots.',
-        'usage': 'Eliminate similar pencil marks in the columns (rows) passing through those spots',
+        'def': 'A row (column) that contains the same candidate in and only in two spots, as well as another parallel row (column) that mirrors it — containing the same candidate which <b>forms a rectangle with the previous 2 spots</b>.',
+        'usage': 'Eliminate the candidates in the columns (rows) passing through the 4 vertices of the rectangle',
+        'why': """
+            The candidate only appears at the 4 vertices of the rectangle in the two rows (columns). &rarr;<br>
+            This number must be at a diagonal of the rectangle (or it will violate the rule). &rarr;<br>
+            The candidate in other cells of these two columns (rows) can be removed.
+        """,
         'button_text': 'Take quiz',
         'button_href': '/quiz',
         'slides': [
