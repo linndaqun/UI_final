@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+
+{% block content %}
+
+<script>
+    var learn = {{learn|tojson}}
+    console.log(learn)
+</script>
+
+<script type="text/javascript" src="{{ url_for('static', filename = 'learn_more.js') }}"></script>
+
+<div class="container">
+    {% autoescape off %}
+    <div class="row">
+        <div class="col-md-6">
+            <h2> {{ learn.title }}</h2>
+            {{ learn.text }}
+            <br><br>
+            <div class="row">
+                <button class="btn btn-primary" id="btn-learn-next"> {{ learn.button_text}} </button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            {% for img in learn.imgs %}
+                <div>
+                    <img class='d-block w-50' alt='...' src={{ img.img_url }}>
+                    <div style="margin-left: 80px; font-size: large; font-weight: bold">
+                       {{ img.description }}
+                    </div>
+                    <br><br>
+
+                </div>
+            {%  endfor %}
+        </div>
+    </div>
+    {% endautoescape %}
+</div>
+{% endblock %}

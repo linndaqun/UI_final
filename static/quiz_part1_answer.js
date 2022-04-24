@@ -104,7 +104,7 @@ function review(){
         let link = "/learn/1";
         window.location.assign(link);
     } else if (pattern == "Hidden Pair") {
-        let link = "/learn/2";
+        let link = "/learn/2/1";
         window.location.assign(link);
     } else {
         let link = "/learn/3";

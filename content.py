@@ -18,7 +18,7 @@ learns_data = [
                   These 2 candidates have to be in these 2 cells &rarr;<br>
                   Other cells cannot have these 2 candidates, so remove them.""",
         'button_text': 'Next',
-        'button_href': '/learn/2',
+        'button_href': '/learn/2/1',
         'slides': [
             {
                 'img_url': 'https://www.learn-sudoku.com/images/naked_pair1.gif',
@@ -37,37 +37,59 @@ learns_data = [
             }
         ]
     },
-    {
-        'title': 'Hidden pair',
-        'def': 'A Hidden Pair is basically just a "buried" Naked Pair. It occurs when two candidates <b>appear and only appear</b> in two cells within the same house.',
-        'usage': 'Erase all the other candidates in the two cells.',
-        'why': """
-            The two candidates only appear in two cells in the same house &rarr;<br>
-            These 2 candidates have to be in these 2 cells &rarr;<br>
-            Other candidates in these two cells can be removed.<br><br>
-            If we put Naked pair and Hidden pair together, we can conclude that:<br>
-            Within the same house, <br>if <b>2 cells only have the same 2 candidates (naked pair)</b> or <b>the 2 candidates only appear in 2 cells (hidden pair)</b>, <br>then these 2 candidates have to be in these 2 cells, <br>so we can remove <b>these 2 candidates in other cells</b> or <b>other candidates in these two cells</b><br>
-            <b>Actually, when the number 2 extend to 3 or more, the strategy still holds!</b>""",
-        'button_text': 'Next',
-        'button_href': '/learn/3',
-        'slides': [
-            {
-                'img_url': 'https://pic.imgdb.cn/item/625ca084239250f7c505c7ab.png',
-                'title': 'The initial state',
-                'description': ''
-            },
-            {
-                'img_url': 'https://pic.imgdb.cn/item/625ca084239250f7c505c7af.png',
-                'title': 'Find Hidden Pair',
-                'description': 'The two green cells are the only two that contain 6 & 9. So, erase all the other pencil marks (pink ones) in the green cells'
-            },
-            {
-                'img_url': 'https://pic.imgdb.cn/item/625ca084239250f7c505c7b4.png',
-                'title': 'After erasing',
-                'description': ''
-            }
-        ]
-    },
+
+    [
+        {
+            'title': 'Hidden pair',
+            'def': 'A Hidden Pair is basically just a "buried" Naked Pair. It occurs when two candidates <b>appear and only appear</b> in two cells within the same house.',
+            'usage': 'Erase all the other candidates in the two cells.',
+            'why': """
+                The two candidates only appear in two cells in the same house &rarr;<br>
+                These 2 candidates have to be in these 2 cells &rarr;<br>
+                Other candidates in these two cells can be removed.<br><br>
+                """,
+            'button_text': 'Continue',
+            'button_href': '/learn/2/2',
+            'slides': [
+                {
+                    'img_url': 'https://pic.imgdb.cn/item/625ca084239250f7c505c7ab.png',
+                    'title': 'The initial state',
+                    'description': ''
+                },
+                {
+                    'img_url': 'https://pic.imgdb.cn/item/625ca084239250f7c505c7af.png',
+                    'title': 'Find Hidden Pair',
+                    'description': 'The two green cells are the only two that contain 6 & 9. So, erase all the other pencil marks (pink ones) in the green cells'
+                },
+                {
+                    'img_url': 'https://pic.imgdb.cn/item/625ca084239250f7c505c7b4.png',
+                    'title': 'After erasing',
+                    'description': ''
+                }
+            ]
+        },
+        {
+            'title': 'Hidden pair',
+            'text': """
+                If we put Naked pair and Hidden pair together, we can conclude that:<br>
+                Within the same house, <br>if <b>2 cells only have the same 2 candidates (naked pair)</b> or <b>the 2 candidates only appear in 2 cells (hidden pair)</b>, <br>then these 2 candidates have to be in these 2 cells, <br>so we can remove <b>these 2 candidates in other cells</b> or <b>other candidates in these two cells</b><br>
+                <b>Actually, when the number 2 extend to 3 or more, the strategy still holds!</b>
+            """,
+            'button_text': 'Next',
+            'button_href': '/learn/3',
+            'imgs': [
+                {
+                    'img_url': 'https://pic.imgdb.cn/item/625c9b16239250f7c500bc3d.png',
+                    'description': 'Naked Pair'
+                },
+                {
+                    'img_url': 'https://pic.imgdb.cn/item/625ca084239250f7c505c7af.png',
+                    'description': 'Hidden Pair'
+                },
+            ]
+        }
+    ],
+
     {
         'title': 'X-wing',
         'def': 'A row (column) that contains the same candidate in and only in two spots, as well as another parallel row (column) that mirrors it — containing the same candidate which <b>forms a rectangle with the previous 2 spots</b>.',

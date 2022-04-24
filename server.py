@@ -240,6 +240,12 @@ def homepage():
 def learn(learn_id):
     return render_template('learn.html', learn=learns_data[int(learn_id)-1])
 
+@app.route('/learn/<learn_id>/<cur_page>', methods=['GET', 'POST'])
+def learn_more_page(learn_id, cur_page):
+    if int(cur_page) == 1:
+        return render_template('learn.html', learn=learns_data[int(learn_id)-1][int(cur_page)-1])
+    else:
+        return render_template('learn_more.html', learn=learns_data[int(learn_id) - 1][int(cur_page) - 1])
 
 @app.route('/quiz', methods=['GET', 'POST'])
 def quiz():
