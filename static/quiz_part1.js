@@ -81,7 +81,7 @@ $(document).ready(function(){
     for (i = 0; i < format[0]*format[1]; i++) {
         selectedCells.push(false);
     }
-
+    $("[data-toggle=popover]").popover();
     $( "#tableContainer" ).append( generateGrid() );
 
     $( ".cell" ).click(function() {

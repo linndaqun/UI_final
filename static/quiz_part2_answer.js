@@ -74,7 +74,12 @@ function generateAnswerGrid() {
                     for ( col1 = 1; col1 <= 3; col1++ ){
                         if (candidate.includes(count)){
                             if (answer.cells.includes(`${row}${col}${row1-1}${col1-1}`)) {
-                                grid += `<td class='candidate green' >`;
+                                if(solution2.cells.includes(`${row}${col}${row1-1}${col1-1}`)) {
+                                    grid += `<td class='candidate green' >`;
+                                } else {
+                                    grid += `<td class='candidate' >`;
+                                }
+
                             }
                             else {
                                 grid += `<td class='candidate' id="td${row}${col}${row1-1}${col1-1}" onclick='clickEvt(${row}, ${col}, ${row1-1}, ${col1-1})'>`;
@@ -101,6 +106,17 @@ function generateAnswerGrid() {
     return grid;
 }
 
+function judgePattern(){
+    if (is_correct == 'true'){
+        $( "#pattern_feedback").append( "You got this right!" );
+        $( "#pattern_feedback").css("color", "green");
+    }
+    else {
+        $( "#pattern_feedback").append( "You didn't choose the correct pattern, see the following explanation:" );
+        $( "#pattern_feedback").css("color", "red");
+    }
+}
+
 function review(){
     let pattern = solution1.pattern;
     if (pattern == "Naked Pair") {
@@ -116,9 +132,13 @@ function review(){
 }
 
 $(document).ready(function(){
-
+    judgePattern();
     $( "#correctTableContainer" ).append( generateSolutionGrid() );
     $( "#tableContainer" ).append( generateAnswerGrid() );
+
+    if (id == 6) {
+        $("#next").html('View Score');
+    }
     $("#next").click(function(){
         let link = "";
         if (id < 6){
@@ -127,6 +147,7 @@ $(document).ready(function(){
         }
         else {
             link = "/score";
+            $("#next").prop("value", "Result");
         }
         window.location.assign(link);
     });
