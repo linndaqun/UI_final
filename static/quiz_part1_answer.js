@@ -6,11 +6,7 @@ function generateSolutionGrid() {
             let index = row*format[0] + col;
             let index_str = index.toString();
             if ( solution.cells.includes(index_str) ) {
-                if ( answer.cells.includes(index_str) ) {
-                    grid += "<td class='cell green'>";
-                } else {
-                    grid += "<td class='cell red'>";
-                }
+                grid += "<td class='cell green'>";
             } else {
                 grid += "<td class='cell'>";
             }
@@ -51,8 +47,13 @@ function generateAnswerGrid() {
         for ( col = 0; col < format[1]; col++ ) { 
             let index = row*format[0] + col;
             let index_str = index.toString();
+
             if ( answer.cells.includes(index_str) ) {
-                grid += "<td class='cell green'>";
+                if (solution.cells.includes(index_str)){
+                    grid += "<td class='cell green'>";
+                } else {
+                    grid += "<td class='cell red'>";
+                }
             } else {
                 grid += "<td class='cell'>";
             }

@@ -111,7 +111,7 @@ $(document).ready(function(){
         }
     }
 
-
+    $("[data-toggle=popover]").popover();
     $("#submit").click(function(){
         if(confirm("Are you sure you want to submit your answers?")){
             submitanswer();

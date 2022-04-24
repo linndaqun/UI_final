@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 # score of the user
 # +1 if one part is correct, total score is 12
-user_score = 0
+user_score = set()
 progress = (1, 1)
 
 # store answers of the user
@@ -259,7 +259,9 @@ def part1(id):
         if key == str(id):
             question = value
             solution = solutions[key]["part1"]
-    return render_template('quiz_part1.html', id=id, question=question, solution=solution)
+    progressBar=str(int(id)*16.66)
+    print(progressBar)
+    return render_template('quiz_part1.html', id=id, question=question, solution=solution, progress_bar=progressBar)
 
 @app.route('/quiz/<id>/part1', methods=['GET', 'POST'])
 def quiz_part1(id):
@@ -286,11 +288,13 @@ def quiz_part1(id):
             for cell in cells:
                 if cell in solution['cells']:
                     correct += 1
+
     if correct == solution['correct']:
-        user_score += 1
+        user_score.add(str(id)+'part1')
     
     progress = (progress[0], 2)
     print(progress)
+
     return render_template('quiz_part1.html', id=id, question=question)
 
 
@@ -301,7 +305,8 @@ def answer_part1(id):
             solution = value['part1']
             question = questions[key]
             answer = user_answers[key]["part1"]
-    return render_template('quiz_part1_answer.html', id=id, solution=solution, question=question, answer=answer)
+    progressBar=str(int(id)*16.66)
+    return render_template('quiz_part1_answer.html', id=id, solution=solution, question=question, answer=answer, progress_bar=progressBar)
 
 @app.route('/quiz/<id>/part2')
 def part2(id):
@@ -311,7 +316,8 @@ def part2(id):
             solution1 = value['part1']
             solution2 = value['part2']
             question = questions[key]
-    return render_template('quiz_part2.html', id=id, question=question, solution1=solution1, solution2=solution2)
+    progressBar=str(int(id)*16.66)
+    return render_template('quiz_part2.html', id=id, question=question, solution1=solution1, solution2=solution2, progress_bar=progressBar)
 
 @app.route('/quiz/<id>/part2', methods=['GET', 'POST'])
 def quiz_part2(id):
@@ -322,6 +328,7 @@ def quiz_part2(id):
             solution1 = value['part1']
             solution2 = value['part2']
             question = questions[key]
+
     if request.method == 'POST':
         json_data = request.get_json()
         user_answer = user_answers[id]["part2"]
@@ -334,7 +341,7 @@ def quiz_part2(id):
                 if cell in solution['cells']:
                     correct += 1
         if correct == solution['correct']:
-                user_score += 1
+                user_score.add(str(id)+'part2')
         print(user_score)
     
     if progress[0] != 6:
@@ -352,11 +359,15 @@ def answer_part2(id):
             solution2 = value['part2']
             question = questions[key]
             answer = user_answers[key]["part2"]
-    return render_template('quiz_part2_answer.html', id=id, solution1=solution1, solution2=solution2, question=question, answer=answer)
+    progressBar=str(int(id)*16.66)
+    is_correct = 'false'
+    if str(id) + 'part2' in user_score:
+        is_correct = 'true'
+    return render_template('quiz_part2_answer.html', id=id, solution1=solution1, solution2=solution2, question=question, answer=answer, progress_bar=progressBar, is_correct=is_correct)
 
 @app.route('/score', methods=['GET', 'POST'])
 def score():
-    return render_template("score.html", score=user_score)
+    return render_template("score.html", score=len(user_score))
 
 if __name__ == '__main__':
     app.run(debug=True)
