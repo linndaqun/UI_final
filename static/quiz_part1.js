@@ -36,7 +36,7 @@ function generateGrid() {
     return grid;
 }
 
-function submitanswer(){
+async function submitanswer(){
     let pattern = $("#pattern").val();
     let select = [];
 
@@ -52,7 +52,7 @@ function submitanswer(){
         "cells": select,
     }
 
-    save(data_to_save);
+    await save(data_to_save);
 }
 
 function save(new_data){

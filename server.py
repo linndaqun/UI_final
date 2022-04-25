@@ -9,6 +9,8 @@ app = Flask(__name__)
 # +1 if one part is correct, total score is 12
 user_score = set()
 progress = (1, 1)
+part1_correct = 'false'
+part2_correct = 'false'
 
 # store answers of the user
 user_answers = {
@@ -83,7 +85,7 @@ solutions = {
             "pattern": "Naked Pair",
             "cells": ['1', '5'],
             "explanation": "There are exactly two candidates in only two cells in the house: 8 and 9 (in green). This is known as Naked Pair",
-            "correct": 3,
+            "correct": 2,
             "hint": "Take a look at candidate 8 and 9! Can you recognize any pattern?",
         },
         "part2": {
@@ -99,7 +101,7 @@ solutions = {
             "pattern": "Naked Pair",
             "cells": ['5', '8'],
             "explanation": "There are exactly two candidates in only two cells in the house: 6 and 7 (in green). This is known as Naked Pair",
-            "correct": 3,
+            "correct": 2,
             "hint": "Can you find any two cell that contain exactly two candidates?",
         },
         "part2": {
@@ -115,7 +117,7 @@ solutions = {
             "pattern": "Hidden Pair",
             "cells": ['4', '6'],
             "explanation": "There are exactly two candidates that exist in only two cells in the house: 1 and 9 (in gree). This is known as Hidden Pair",
-            "correct": 3,
+            "correct": 2,
             "hint": "Can you find any two candidates that exist and only exist in two cells?",
         },
         "part2": {
@@ -131,7 +133,7 @@ solutions = {
         "part1": {
             "pattern": "Hidden Pair",
             "cells": ['1', '6'],
-            "correct": 6,
+            "correct": 2,
             "explanation": "There are exactly two candidates that exist in only two cells in the house: 2 and 5 (in green). This is known as Hidden Pair",
             "hint": "Can you find any two candidates that exist in only two cells?",
         },
@@ -147,7 +149,7 @@ solutions = {
         "part1": {
             "pattern": "X-wing",
             "cells": ['12', '16', '52', '48'],
-            "correct": 5,
+            "correct": 4,
             "explanation": "On the 2nd and 6th row, there are only two 7s and they are on the same column. This is known as X-wing.",
             "hint": "Well, this is a hard question! Please be patient. Can you find any candidate that exist twice in two rows/columns? If not, pay attention to 7!"
         },
@@ -163,7 +165,7 @@ solutions = {
         "part1": {
             "pattern": "Hidden Pair",
             "cells": ['3', '5', '7'],
-            "correct": 4,
+            "correct": 3,
             "explanation": "There are exactly three candidates that exist in only three cells in the house: 2, 5, and 6 (in green). This is known as Hidden Pair/Set",
             "hint": "This is an advanced one! Instead of finding two candidates, can you find three candidates as a set?",
         },
@@ -279,10 +281,13 @@ def part1(id):
 
 @app.route('/quiz/<id>/part1', methods=['GET', 'POST'])
 def quiz_part1(id):
+    global part1_correct
     global user_score
     global progress
+    if request.method == 'POST':
+        part1_correct = 'false'
     question = questions[id]
-
+    solution = solutions[id]["part1"]
     json_data = request.get_json()
     id = json_data['id']
     technique = json_data['pattern']
@@ -292,24 +297,22 @@ def quiz_part1(id):
     user_answer['pattern'] = technique
     user_answer['cells'] = cells
 
-    solution = solutions[str(id)]["part1"]
     correct = 0
+    if len(cells) == len(solution['cells']):
+        for cell in cells:
+            if cell in solution['cells']:
+                correct += 1
     if solution['pattern'] == technique:
-        correct += 1
-        if len(cells) == len(solution['cells']):
-            for cell in cells:
-                if cell in solution['cells']:
-                    correct += 1
+        if correct == solution['correct']:
+            user_score.add(str(id) + 'part1')
 
     if correct == solution['correct']:
-        user_score.add(str(id) + 'part1')
+        part1_correct = 'true'
 
     progress = (progress[0], 2)
-    print(progress)
-    progressBar = str(int(id) * 16.66)
+    print(part1_correct)
 
-    return render_template('quiz_part1.html', id=id, question=question, solution=solution,
-                           progress_bar=progressBar)
+    return render_template('quiz_part1.html', id=id, question=question, progress_bar=progress, solution=solution)
 
 
 @app.route('/answer/<id>/part1', methods=['GET', 'POST'])
@@ -318,8 +321,9 @@ def answer_part1(id):
     question = questions[id]
     answer = user_answers[id]["part1"]
     progressBar = str(int(id) * 16.66)
+    print(part1_correct)
     return render_template('quiz_part1_answer.html', id=id, solution=solution, question=question, answer=answer,
-                           progress_bar=progressBar)
+                           progress_bar=progressBar, part1_correct=part1_correct)
 
 
 @app.route('/quiz/<id>/part2')
@@ -335,6 +339,7 @@ def part2(id):
 
 @app.route('/quiz/<id>/part2', methods=['GET', 'POST'])
 def quiz_part2(id):
+    global part2_correct
     global user_score
     global progress
     solution1 = solutions[id]['part1']
@@ -342,18 +347,24 @@ def quiz_part2(id):
     question = questions[id]
 
     if request.method == 'POST':
+        part2_correct = 'false'
         json_data = request.get_json()
         user_answer = user_answers[id]["part2"]
         user_answer['cells'] = json_data['cells']
+        print(json_data['cells'])
         solution = solutions[id]["part2"]
         correct = 0
 
+        print(user_answer['cells'])
+        print(solution['cells'])
         if len(user_answer['cells']) == len(solution['cells']):
             for cell in user_answer['cells']:
                 if cell in solution['cells']:
                     correct += 1
         if correct == solution['correct']:
             user_score.add(str(id) + 'part2')
+            part2_correct = 'true'
+            print(part2_correct)
         print(user_score)
 
     if progress[0] != 6:
@@ -367,16 +378,15 @@ def quiz_part2(id):
 
 @app.route('/answer/<id>/part2', methods=['GET', 'POST'])
 def answer_part2(id):
+    global user_score
     solution1 = solutions[id]['part1']
     solution2 = solutions[id]['part2']
     question = questions[id]
     answer = user_answers[id]["part2"]
     progressBar = str(int(id) * 16.66)
-    is_correct = 'false'
-    if str(id) + 'part2' in user_score:
-        is_correct = 'true'
+    print(part2_correct)
     return render_template('quiz_part2_answer.html', id=id, solution1=solution1, solution2=solution2, question=question,
-                           answer=answer, progress_bar=progressBar, is_correct=is_correct)
+                           answer=answer, progress_bar=progressBar, is_correct=part2_correct)
 
 
 @app.route('/score', methods=['GET', 'POST'])

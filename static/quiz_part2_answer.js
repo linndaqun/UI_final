@@ -77,7 +77,7 @@ function generateAnswerGrid() {
                                 if(solution2.cells.includes(`${row}${col}${row1-1}${col1-1}`)) {
                                     grid += `<td class='candidate green' >`;
                                 } else {
-                                    grid += `<td class='candidate' >`;
+                                    grid += `<td class='candidate red' >`;
                                 }
 
                             }
@@ -112,7 +112,7 @@ function judgePattern(){
         $( "#pattern_feedback").css("color", "green");
     }
     else {
-        $( "#pattern_feedback").append( "You didn't choose the correct pattern, see the following explanation:" );
+        $( "#pattern_feedback").append( "You didn't choose the correct candidate(s) to eliminate, see the following explanation:" );
         $( "#pattern_feedback").css("color", "red");
     }
 }
