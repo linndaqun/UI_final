@@ -10,6 +10,7 @@ app = Flask(__name__)
 # +1 if one part is correct, total score is 12
 user_score = set()
 progress = (1, 1)
+part1_correct = False
 
 # store answers of the user
 user_answers = {
@@ -273,6 +274,7 @@ def part1(id):
 def quiz_part1(id):
     global user_score
     global progress
+    global part1_correct
     for key, value in questions.items():
         if key == str(id):
             question = value
@@ -297,6 +299,7 @@ def quiz_part1(id):
 
     if correct == solution['correct']:
         user_score.add(str(id)+'part1')
+        part1_correct = True
     
     progress = (progress[0], 2)
     print(progress)
@@ -312,7 +315,7 @@ def answer_part1(id):
             question = questions[key]
             answer = user_answers[key]["part1"]
     progressBar=str(int(id)*16.66)
-    return render_template('quiz_part1_answer.html', id=id, solution=solution, question=question, answer=answer, progress_bar=progressBar)
+    return render_template('quiz_part1_answer.html', id=id, solution=solution, question=question, answer=answer, progress_bar=progressBar, part1_correct=part1_correct)
 
 @app.route('/quiz/<id>/part2')
 def part2(id):

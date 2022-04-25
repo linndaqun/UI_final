@@ -12,6 +12,7 @@
     let progress_bar = {{progress_bar|tojson}};
     let format = {{question.format|tojson}};
     let answer = {{answer|tojson}};
+    let is_correct = {{part1_correct|tojson}};
 </script>
 <div>
     <div class="row quiz">Question {{id}} Part 1 Answer</div>
@@ -46,6 +47,7 @@
             <div class="row">
                 2. Cells that indicate the correct technique
             </div>
+            <div class="row" id="pattern_feedback2"></div>
             <div class="row grey">
                 (The correct answer is marked in green, and your incorrect answer is marked in red)
             </div>
