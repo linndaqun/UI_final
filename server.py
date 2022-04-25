@@ -10,7 +10,7 @@ app = Flask(__name__)
 # +1 if one part is correct, total score is 12
 user_score = set()
 progress = (1, 1)
-part1_correct = False
+part1_correct = 'false'
 
 # store answers of the user
 user_answers = {
@@ -85,7 +85,7 @@ solutions = {
             "pattern": "Naked Pair",
             "cells": ['1', '5'],
             "explanation": "There are exactly two candidates in only two cells in the house: 8 and 9 (in green). This is known as Naked Pair",
-            "correct": 3,
+            "correct": 2,
             "hint": "Take a look at candidate 8 and 9! Can you recognize any pattern?",
         },
         "part2":{
@@ -101,7 +101,7 @@ solutions = {
             "pattern": "Naked Pair",
             "cells": ['5', '8'],
             "explanation": "There are exactly two candidates in only two cells in the house: 6 and 7 (in green). This is known as Naked Pair",
-            "correct": 3,
+            "correct": 2,
             "hint": "Can you find any two cell that contain exactly two candidates?",
         },
         "part2":{
@@ -117,7 +117,7 @@ solutions = {
             "pattern": "Hidden Pair",
             "cells": ['4', '6'],
             "explanation": "There are exactly two candidates that exist in only two cells in the house: 1 and 9 (in gree). This is known as Hidden Pair",
-            "correct": 3,
+            "correct": 2,
             "hint": "Can you find any two candidates that exist and only exist in two cells?",
         },
         "part2":{
@@ -133,7 +133,7 @@ solutions = {
         "part1":{
             "pattern": "Hidden Pair",
             "cells": ['1', '6'],
-            "correct": 6,
+            "correct": 2,
             "explanation": "There are exactly two candidates that exist in only two cells in the house: 2 and 5 (in green). This is known as Hidden Pair",
             "hint": "Can you find any two candidates that exist in only two cells?",
         },
@@ -149,7 +149,7 @@ solutions = {
         "part1":{
             "pattern": "X-wing",
             "cells": ['12', '16', '52', '48'],
-            "correct": 5,
+            "correct": 4,
             "explanation": "On the 2nd and 6th row, there are only two 7s and they are on the same column. This is known as X-wing.",
             "hint": "Well, this is a hard question! Please be patient. Can you find any candidate that exist twice in two rows/columns? If not, pay attention to 7!"
         },
@@ -165,7 +165,7 @@ solutions = {
         "part1":{
             "pattern": "Hidden Pair",
             "cells": ['3', '5', '7'],
-            "correct": 4,
+            "correct": 3,
             "explanation":"There are exactly three candidates that exist in only three cells in the house: 2, 5, and 6 (in green). This is known as Hidden Pair/Set",
             "hint": "This is an advanced one! Instead of finding two candidates, can you find three candidates as a set?",
         },
@@ -275,9 +275,11 @@ def quiz_part1(id):
     global user_score
     global progress
     global part1_correct
+    part1_correct = 'false'
     for key, value in questions.items():
         if key == str(id):
             question = value
+            solution = solutions[key]["part1"]
     
     json_data = request.get_json()
     id = json_data['id']
@@ -290,21 +292,21 @@ def quiz_part1(id):
 
     solution = solutions[str(id)]["part1"]
     correct = 0
+    if len(cells) == len(solution['cells']):
+        for cell in cells:
+            if cell in solution['cells']:
+                correct += 1
     if solution['pattern'] == technique:
-        correct += 1
-        if len(cells) == len(solution['cells']):
-            for cell in cells:
-                if cell in solution['cells']:
-                    correct += 1
+        if correct == solution['correct']:
+            user_score.add(str(id)+'part1')
 
     if correct == solution['correct']:
-        user_score.add(str(id)+'part1')
-        part1_correct = True
+        part1_correct = 'true'
     
     progress = (progress[0], 2)
-    print(progress)
+    print(part1_correct)
 
-    return render_template('quiz_part1.html', id=id, question=question)
+    return render_template('quiz_part1.html', id=id, question=question, progress_bar=progress, solution=solution)
 
 
 @app.route('/answer/<id>/part1', methods=['GET', 'POST'])
@@ -357,7 +359,7 @@ def quiz_part2(id):
         print(progress)
         progress = (progress[0]+1, 1)
         print(progress)
-    return render_template('quiz_part2.html', id=id, question=question, solution1=solution1, solution2=solution2)
+    return render_template('quiz_part2.html', id=id, question=question, solution1=solution1, solution2=solution2, progress_bar=progress)
 
 
 @app.route('/answer/<id>/part2', methods=['GET', 'POST'])
