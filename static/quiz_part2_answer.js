@@ -112,7 +112,7 @@ function judgePattern(){
         $( "#pattern_feedback").css("color", "green");
     }
     else {
-        $( "#pattern_feedback").append( "You didn't choose the correct pattern, see the following explanation:" );
+        $( "#pattern_feedback").append( "You didn't choose the correct candidate(s) to eliminate, see the following explanation:" );
         $( "#pattern_feedback").css("color", "red");
     }
 }
