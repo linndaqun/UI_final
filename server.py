@@ -276,7 +276,8 @@ def quiz_part1(id):
     global user_score
     global progress
     global part1_correct
-    part1_correct = 'false'
+    if request.method == 'POST':
+        part1_correct = 'false'
     for key, value in questions.items():
         if key == str(id):
             question = value
@@ -318,6 +319,7 @@ def answer_part1(id):
             question = questions[key]
             answer = user_answers[key]["part1"]
     progressBar=str(int(id)*16.66)
+    print(part1_correct)
     return render_template('quiz_part1_answer.html', id=id, solution=solution, question=question, answer=answer, progress_bar=progressBar, part1_correct=part1_correct)
 
 @app.route('/quiz/<id>/part2')
@@ -336,7 +338,6 @@ def quiz_part2(id):
     global user_score
     global progress
     global part2_correct
-    part2_correct = 'false'
     for key, value in solutions.items():
         if key == str(id):
             solution1 = value['part1']
@@ -344,6 +345,7 @@ def quiz_part2(id):
             question = questions[key]
 
     if request.method == 'POST':
+        part2_correct = 'false'
         json_data = request.get_json()
         user_answer = user_answers[id]["part2"]
         user_answer['cells'] = json_data['cells']
@@ -360,6 +362,7 @@ def quiz_part2(id):
         if correct == solution['correct']:
                 user_score.add(str(id)+'part2')
                 part2_correct = 'true'
+                print(part2_correct)
         print(user_score)
     
     if progress[0] != 6:
