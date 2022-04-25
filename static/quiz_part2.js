@@ -43,14 +43,14 @@ function generateGrid() {
     return grid;
 }
 
-function submitanswer(){
+async function submitanswer(){
 
     let data_to_save = {
         "id": id,
         "cells": selectedCells,
     }
 
-    save(data_to_save);
+    await save(data_to_save);
 }
 
 function save(new_data){
@@ -115,7 +115,6 @@ $(document).ready(function(){
     $("#submit").click(function(){
         if(confirm("Are you sure you want to submit your answers?")){
             submitanswer();
-
             let link = "/answer/" + id.toString() + "/part2";
             window.location.assign(link);
         }
