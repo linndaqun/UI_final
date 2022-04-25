@@ -272,6 +272,7 @@ def quiz():
 
 @app.route('/quiz/<id>/part1')
 def part1(id):
+    id = str(id)
     question = questions[id]
     solution = solutions[id]["part1"]
     progressBar = str(int(id) * 16.66)
@@ -284,6 +285,7 @@ def quiz_part1(id):
     global part1_correct
     global user_score
     global progress
+    id = str(id)
     if request.method == 'POST':
         part1_correct = 'false'
     question = questions[id]
@@ -317,6 +319,7 @@ def quiz_part1(id):
 
 @app.route('/answer/<id>/part1', methods=['GET', 'POST'])
 def answer_part1(id):
+    id = str(id)
     solution = solutions[id]['part1']
     question = questions[id]
     answer = user_answers[id]["part1"]
@@ -329,6 +332,7 @@ def answer_part1(id):
 @app.route('/quiz/<id>/part2')
 def part2(id):
     global user_score
+    id = str(id)
     solution1 = solutions[id]['part1']
     solution2 = solutions[id]['part2']
     question = questions[id]
@@ -342,6 +346,7 @@ def quiz_part2(id):
     global part2_correct
     global user_score
     global progress
+    id = str(id)
     solution1 = solutions[id]['part1']
     solution2 = solutions[id]['part2']
     question = questions[id]
@@ -379,6 +384,7 @@ def quiz_part2(id):
 @app.route('/answer/<id>/part2', methods=['GET', 'POST'])
 def answer_part2(id):
     global user_score
+    id = str(id)
     solution1 = solutions[id]['part1']
     solution2 = solutions[id]['part2']
     question = questions[id]
