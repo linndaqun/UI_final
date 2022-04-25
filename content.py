@@ -69,7 +69,7 @@ learns_data = [
             ]
         },
         {
-            'title': 'Hidden pair',
+            'title': 'Naked pair & Hidden pair',
             'text': """
                 If we put Naked pair and Hidden pair together, we can conclude that:<br>
                 Within the same house, <br>if <b>2 cells only have the same 2 candidates (naked pair)</b> or <b>the 2 candidates only appear in 2 cells (hidden pair)</b>, <br>then these 2 candidates have to be in these 2 cells, <br>so we can remove <b>these 2 candidates in other cells</b> or <b>other candidates in these two cells</b><br>
@@ -96,7 +96,7 @@ learns_data = [
         'usage': 'Eliminate the candidates in the columns (rows) passing through the 4 vertices of the rectangle',
         'why': """
             The candidate only appears at the 4 vertices of the rectangle in the two rows (columns). &rarr;<br>
-            This number must be at a diagonal of the rectangle (or it will violate the rule). &rarr;<br>
+            This number must appear at two points on a diagonal of the rectangle (or it will violate the rule). &rarr;<br>
             The candidate in other cells of these two columns (rows) can be removed.
         """,
         'button_text': 'Take quiz',
