@@ -77,7 +77,7 @@ function generateAnswerGrid() {
                                 if(solution2.cells.includes(`${row}${col}${row1-1}${col1-1}`)) {
                                     grid += `<td class='candidate green' >`;
                                 } else {
-                                    grid += `<td class='candidate' >`;
+                                    grid += `<td class='candidate red' >`;
                                 }
 
                             }

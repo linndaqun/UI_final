@@ -11,6 +11,7 @@ app = Flask(__name__)
 user_score = set()
 progress = (1, 1)
 part1_correct = 'false'
+part2_correct = 'false'
 
 # store answers of the user
 user_answers = {
@@ -334,6 +335,8 @@ def part2(id):
 def quiz_part2(id):
     global user_score
     global progress
+    global part2_correct
+    part2_correct = 'false'
     for key, value in solutions.items():
         if key == str(id):
             solution1 = value['part1']
@@ -344,15 +347,19 @@ def quiz_part2(id):
         json_data = request.get_json()
         user_answer = user_answers[id]["part2"]
         user_answer['cells'] = json_data['cells']
+        print(json_data['cells'])
         solution = solutions[id]["part2"]
         correct = 0
 
+        print(user_answer['cells'])
+        print(solution['cells'])
         if len(user_answer['cells']) == len(solution['cells']):
             for cell in user_answer['cells']:
                 if cell in solution['cells']:
                     correct += 1
         if correct == solution['correct']:
                 user_score.add(str(id)+'part2')
+                part2_correct = 'true'
         print(user_score)
     
     if progress[0] != 6:
@@ -364,6 +371,7 @@ def quiz_part2(id):
 
 @app.route('/answer/<id>/part2', methods=['GET', 'POST'])
 def answer_part2(id):
+    global user_score
     for key, value in solutions.items():
         if key == str(id):
             solution1 = value['part1']
@@ -371,10 +379,8 @@ def answer_part2(id):
             question = questions[key]
             answer = user_answers[key]["part2"]
     progressBar=str(int(id)*16.66)
-    is_correct = 'false'
-    if str(id) + 'part2' in user_score:
-        is_correct = 'true'
-    return render_template('quiz_part2_answer.html', id=id, solution1=solution1, solution2=solution2, question=question, answer=answer, progress_bar=progressBar, is_correct=is_correct)
+    print(part2_correct)
+    return render_template('quiz_part2_answer.html', id=id, solution1=solution1, solution2=solution2, question=question, answer=answer, progress_bar=progressBar, is_correct=part2_correct)
 
 @app.route('/score', methods=['GET', 'POST'])
 def score():
