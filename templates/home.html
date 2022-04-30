@@ -11,39 +11,58 @@
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-            <h2> {{ home.title }}</h2>
+            <div id="home-title">
+                {{ home.title }}
+            </div>
         </div>
         <div class="col-md-6">
-            <h3> Objective:</h3>
-            {{ home.objective }}
-            <br><br>
-            <h3> Terms: </h3>
-            <ul>
-                {% for term1, term2 in home.terms %}
-                    <li>
-                        {{ term1 }}: {{ term2 }}
-                    </li>
-                {% endfor %}
-            </ul>
+        <div class="cardContainer card">
+            <h5 class="card-title">Objective</h5>
+            <div class="tutorial-text">
+                {{ home.objective }}
+            </div>
+        </div>
+        <br><br>
+        <div class="cardContainer card">
+            <h5 class="card-title">Terms</h5>
+            <div class="tutorial-text">
+                <ul>
+                    {% for term1, term2 in home.terms %}
+                        <li>
+                            {{ term1 }}: {{ term2 }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+        </div>
+        <div class="col-md-6 text-center">
+            <div id="home-image">
+                <img src={{ home.img_url }} width="300" height="300">
+            </div>
 
         </div>
-        <div class="col-md-6">
-            <img src={{ home.img_url }} >
-        </div>
     </div>
+    <br><br>
     <div class="row">
-        <div class="col-md-3">
-            <div class="circle">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-2 text-center">
+            <div class="circle" style="margin-left: 20px;">
                 1
             </div>
             <div class="circle-text-below">
                 {{ home.patterns[0] }}
             </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-1">
+            <div class="home-link-line">
+
+            </div>
         </div>
-        <div class="col-md-3">
-            <div class="circle">
+        <div class="col-md-2">
+            <div class="circle" style="margin-left: 20px;">
                 2
             </div>
             <div class="circle-text-below">
@@ -51,9 +70,11 @@
             </div>
 
         </div>
-        <div class="col-md-2">
+        <div class="col-md-1">
+            <div class="home-link-line">
+            </div>
         </div>
-        <div class="col-md-2">
+        <div class="col-md-2" style="margin-left: 20px;">
             <div class="circle">
                 3
             </div>
@@ -61,9 +82,18 @@
                 {{ home.patterns[2] }}
             </div>
         </div>
+        <div class="col-md-2">
+
+        </div>
     </div>
     <div class="row">
-        <button class="btn btn-primary" id="btn-home-start"> Start to learn </button>
+        <button class="button-82-pushable" role="button" id="btn-home-start">
+            <span class="button-82-shadow"></span>
+            <span class="button-82-edge"></span>
+            <span class="button-82-front text">
+                Start to learn
+            </span>
+        </button>
     </div>
 </div>
 {% endblock %}
