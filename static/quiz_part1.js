@@ -1,4 +1,5 @@
 let selectedCells =[];
+let pattern = '';
 function generateGrid() {
     var grid = "<table class='quizTable'>";
     for ( row = 0; row < format[0]; row++ ) {
@@ -37,7 +38,7 @@ function generateGrid() {
 }
 
 async function submitanswer(){
-    let pattern = $("#pattern").val();
+
     let select = [];
 
     for (var index in selectedCells) {
@@ -101,6 +102,11 @@ $(document).ready(function(){
     });
 
     $("#submit").click(function(){
+        if (pattern === '') {
+            alert("Please select a pattern!");
+            return;
+        }
+
         if(confirm("Are you sure you want to submit your answers?")){
             submitanswer();
 
@@ -112,4 +118,21 @@ $(document).ready(function(){
     $("#hint").one("click", function(){
         showHint();
     })
+
+    $("input[type=radio]").change(function(){
+        console.log('THis is a change\n');
+        if($(this).val() === '1')
+        {
+            console.log('X-wing!');
+            pattern = 'Naked Pair';
+        }
+        else if($(this).val() === '2')
+        {
+            pattern = 'Hidden Pair';
+        }
+        else if($(this).val() === '3')
+        {
+            pattern = 'X-wing';
+        }
+    });
 })
