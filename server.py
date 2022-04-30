@@ -381,7 +381,7 @@ def quiz_part2(id):
                            progress_bar=progressBar)
 
 
-@app.route('/answer/<id>/part2', methods=['GET', 'POST'])
+@app.route('/answer/<id>/part2')
 def answer_part2(id):
     global user_score
     id = str(id)

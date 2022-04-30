@@ -73,6 +73,13 @@
     min-height: 100px;
     empty-cells: show;
 }
+td.clickable_item:hover {
+    background-color: lightsteelblue;
+    cursor: pointer;
+}
+td.clickable_item:active {
+    background-color: lightblue;
+}
 .answer{
     color: blueviolet;
 }
@@ -87,5 +94,5 @@
 
 .green{
     color: black;
-    background-color: green;
+    background-color: lawngreen;
 }

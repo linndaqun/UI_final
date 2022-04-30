@@ -4,7 +4,7 @@ function generateGrid() {
     for ( row = 0; row < format[0]; row++ ) {
         grid += "<tr>"; 
         for ( col = 0; col < format[1]; col++ ) {      
-            grid += "<td class='cell'>";
+            grid += "<td class='cell clickable_item'>";
             let index = row*format[0] + col;
             if (arrangement[index] == 0){
                 let candidate = candidates[index];
@@ -88,14 +88,11 @@ $(document).ready(function(){
         let myCol = $(this).index();
         let myRow = $(this).closest('tr').index();
         let index = myRow * format[0] + myCol;
-
-        let bgcolor = $( this ).css( 'background-color');
-        if (bgcolor == 'rgb(0, 128, 0)') {
-            $( this ).css( 'background-color', 'white' );
+        if (selectedCells[index]) {
+            $( this ).css( 'background-color', '' );
             selectedCells[index] = false;
         } else {
-            $( this ).css( 'background-color', 'green' );
-            console.log($( this ).css( 'background-color'));
+            $( this ).css( 'background-color', 'lightskyblue' );
             selectedCells[index] = true;
         }
     });
