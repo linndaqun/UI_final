@@ -21,9 +21,14 @@
 }
 
 
+
 #block-under-image {
     background-color: black;
     height: 9em;
+    text-align: center;
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 .carousel-control-next,
 .carousel-control-prev /*, .carousel-indicators */ {
@@ -174,6 +179,11 @@ td.clickable_item:active {
     font-size: 30px;
 }
 
+.card-subtitle {
+    font-family: 'Gotham Rounded', sans-serif;
+    font-size: 20px;
+}
+
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
@@ -319,4 +329,60 @@ td.clickable_item:active {
 
 .button-82-pushable:focus:not(:focus-visible) {
   outline: none;
+}
+
+
+
+
+
+
+
+/* CSS */
+.button-59 {
+  align-items: center;
+  background-color: #fff;
+  border: 2px solid #000;
+  box-sizing: border-box;
+  color: #000;
+  cursor: pointer;
+  display: inline-flex;
+  fill: #000;
+  font-family: "Gill Sans", sans-serif;
+  font-size: 25px;
+  font-weight: 600;
+  height: 48px;
+  justify-content: center;
+  letter-spacing: -.8px;
+  line-height: 24px;
+  min-width: 140px;
+  outline: 0;
+  padding: 0 17px;
+  text-align: center;
+  text-decoration: none;
+  transition: all .3s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.button-59:focus {
+  color: #171e29;
+}
+
+.button-59:hover {
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+
+.button-59:active {
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
+}
+
+@media (min-width: 768px) {
+  .button-59 {
+    min-width: 170px;
+  }
 }
