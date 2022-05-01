@@ -234,8 +234,8 @@ td.clickable_item:active {
   -webkit-user-select: none;
   touch-action: manipulation;
   margin-top: 30px;
-  position: absolute;
-  left: 44%;
+  position: relative;
+  left: 40%;
 }
 
 .button-82-shadow {
