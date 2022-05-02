@@ -415,3 +415,8 @@ td.clickable_item:active {
 .basecolor{
   background-color: rgb(255, 255, 205);
 }
+
+
+.accentcolor{
+  color: #06f;
+}
