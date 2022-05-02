@@ -121,7 +121,7 @@ function review(){
 }
 
 $(document).ready(function(){
-    // judgePattern();
+
     $( "#correctTableContainer" ).append( generateSolutionGrid() );
     $( "#tableContainer" ).append( generateAnswerGrid() );
 
