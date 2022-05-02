@@ -116,7 +116,7 @@ solutions = {
         "part1": {
             "pattern": "Hidden Pair",
             "cells": ['4', '6'],
-            "explanation": "There are exactly two candidates that exist in only two cells in the house: 1 and 9 (in gree). This is known as Hidden Pair",
+            "explanation": "There are exactly two candidates that exist in only two cells in the house: 1 and 9 (in green). This is known as Hidden Pair",
             "correct": 2,
             "hint": "Can you find any two candidates that exist and only exist in two cells?",
         },
@@ -141,7 +141,7 @@ solutions = {
             "pattern": "Hidden Pair",
             "cells": ['0102', '0110', '0610'],
             "correct": 3,
-            "explanation": "According to Hidden Pair, since only two cells contain 2s and 5s, 2s and 5s can only exist in these two cells. Other candidates in these two cells are not feasible, so we can eliminate other c.",
+            "explanation": "According to Hidden Pair, since only two cells contain 2s and 5s, 2s and 5s can only exist in these two cells. Other candidates in these two cells are not feasible, so we can eliminate other candidates.",
             "hint": "You know that 2s and 5s only exist in these two cells, is it possible for other candidates to exist in these cells?",
         },
     },

@@ -1,9 +1,4 @@
 @import url('http://fonts.cdnfonts.com/css/gotham-rounded');
-img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-}
 
 .circle {
   width: 100px;
@@ -20,21 +15,6 @@ img {
 .circle-text-below{
   font-size: 25px;
   font-family: 'Gotham Rounded', sans-serif;
-}
-.white {
-    color: white;
-}
-
-#btn-home-start {
-}
-
-.navbar-brand {
-    font-size: 30px;
-    font-family: 'Gotham Rounded', sans-serif;
-}
-
-.navbar-nav {
-    font-family: 'Gotham Rounded', sans-serif;
 }
 
 
@@ -130,13 +110,6 @@ td.clickable_item:active {
     max-width: 90%;
 }
 
-.congratulationCard {
-    border-radius: 10px;
-    padding: 20px;
-    font-family: 'Montserrat', sans-serif;
-    max-width: 100%;
-}
-
 
 .options {
     position: relative;
@@ -200,18 +173,11 @@ td.clickable_item:active {
 .card-title {
     font-family: 'Gotham Rounded', sans-serif;
     font-size: 30px;
-    color: white;
-}
-
-.black-title {
-    font-family: 'Gotham Rounded', sans-serif;
-    font-size: 30px;
 }
 
 .card-subtitle {
     font-family: 'Gotham Rounded', sans-serif;
     font-size: 20px;
-    padding-bottom: 5px;
 }
 
 .card {
@@ -220,10 +186,7 @@ td.clickable_item:active {
 
 .progress {
     width: 90%;
-}
-
-.progress-bar {
-    background-color: white;
+    color: hsl(340deg 100% 32%);
 }
 
 .vertical-center {
@@ -265,7 +228,7 @@ td.clickable_item:active {
   touch-action: manipulation;
   margin-top: 30px;
   position: relative;
-  /*left: 40%;*/
+  left: 40%;
 }
 
 .button-82-shadow {
@@ -446,7 +409,7 @@ td.clickable_item:active {
 }
 
 .accentcolor{
-  color: white;
+  color: hsl(340deg 100% 32%);
 }
 
 body
@@ -454,19 +417,10 @@ body
   background-size: 100%;
 }
 
-.congratulationButton{
-    font-size: 25px;
-    font-family: 'Gotham Rounded', sans-serif;
+.congratulationTitle{
+  font-size: xx-large;
 }
 
-.congratulationTitle {
-    font-family: 'Gotham Rounded', sans-serif;
-    font-size: 40px;
-}
-
-.btn-color{background-color:#00acee;color: white;}
-.btn-color:hover{background-color: #00acde; color: white;}
-.normalButton{
-    font-size: 15px;
-    font-family: 'Gotham Rounded', sans-serif;
+.white{
+  color: white;
 }

@@ -126,7 +126,7 @@ $(document).ready(function(){
     $( "#tableContainer" ).append( generateAnswerGrid() );
 
     if (id == 6) {
-        $("#next").html('View Score');
+        $("#nexttext").html('View Score');
     }
     $("#next").click(function(){
         let link = "";
