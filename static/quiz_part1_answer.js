@@ -98,7 +98,8 @@ function judgePattern() {
 }
 
 function judgePattern2() {
-    if (is_correct === 'true') {
+    console.log(is_correct);
+    if (is_correct == 'true') {
         $("#pattern_feedback2").append("You got this right!");
         $("#pattern_feedback2").css("color", "green");
     } else {
