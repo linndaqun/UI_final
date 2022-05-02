@@ -13,17 +13,19 @@
     let format = {{question.format|tojson}};
     let answer = {{answer|tojson}};
     let part1_correct = {{part1_correct|tojson}};
+    let ans = 'false';
+    console.log(part1_correct)
 </script>
 <div>
 
     <div class="progressBarModal">
-        <div class="progress progress-lg mx-auto mt-sm-5" style="width: 80%;">
-            <div class="progress-bar" role="progressbar" style="width: {{progress_bar}}%; font-size: 120%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="6"><b>Progress: {{id}} / 6</b></div>
+        <div class="progress progress-lg mx-auto mt-sm-5" style="width: 80%; height: 30px;">
+            <div class="progress-bar  bg-success" role="progressbar" style="width: {{progress_bar}}%; font-size: 150%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="6"><b>Progress: {{id}} / 6</b></div>
         </div>
     </div>
 
     <div class="cardContainer card mt-sm-5 mb-sm-5 my-1 mx-auto">
-        <h5 class="card-title mx-auto">Question {{id}} Part 1 Answer</h5>
+        <h5 class="black-title mx-auto">Question {{id}} Part 1 Answer</h5>
         <div class="ml-sm-2 pl-sm-2 pt-2">
             <div class="py-2 h5"><b>Q1. The technique to solve this quzzle:</b></div>
             {% if answer.pattern == solution.pattern %}
@@ -49,11 +51,11 @@
     <div class="cardContainer card mt-sm-5 mb-sm-5 my-1 mx-auto">
         <div class="ml-sm-2 pl-sm-2 pt-2">
             <div class="py-2 h5 vertical-center"><b>Q2. Cells that indicate the correct technique: </b> </div>
-            {% if is_correct %}
+            {% if part1_correct == 'true' %}
             <div class="alert alert-success" role="alert">
                 <h4 class="alert-heading">Correct!</h4>
                 <hr>
-                <p class="mb-0"> Explanation: <br> {{solution.explanation}} </p>
+                <p class="mb-0"> Explanation: <br> {{solution.explanation}}</p>
             </div>
             {% else %}
             <div class="alert alert-danger" role="alert">
@@ -62,14 +64,14 @@
             </div>
             {% endif %}
             <div class="py-2 h5"><b>Your answer is:</b></div>
-            <div id="tableContainer"></div>
+            <div id="tableContainer" class="table-responsive"></div>
             <div class="py-2 h5"><b>Correct answer is:</b></div>
-            <div id="correctTableContainer"></div>
+            <div id="correctTableContainer" class="table-responsive"></div>
 
-            <div class="ml-md-3 ml-sm-3 pl-md-1 pt-sm-0 pt-3" id="tableContainer"></div>
+<!--            <div class="ml-md-3 ml-sm-3 pl-md-1 pt-sm-0 pt-3" id="tableContainer"></div>-->
             <div  class="row ml-md-3 ml-sm-3 pl-md-1 pt-4">
-                <button class="btn btn-primary mt-3 mr-3" id="next">Part 2</button>
-                <button class="btn btn-primary mt-3" id="review">Review Concept</button>
+                <button class="btn btn-color normalButton mt-3 mr-3" id="next">Part 2</button>
+                <button class="btn btn-color normalButton mt-3" id="review">Review Concept</button>
             </div>
         </div>
     </div>

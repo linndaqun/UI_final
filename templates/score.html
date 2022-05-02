@@ -6,7 +6,18 @@
 </script>
 
 <div>
-    Your score is {{score}}/12!
+    <div class="congratulationCard card mt-sm-5 mb-sm-5 my-2 mx-auto">
+        <h5 class="congratulationTitle mx-auto">Your score is {{score}}/12!</h5>
+        <div class="ml-sm-2 pl-sm-2 pt-2">
+            <div class="container mx-auto">
+                        <img class="mx-auto d-block" src="../static/congratulations.gif" style="width:50%;">
+                <div class="row mx-auto">
+                    <div class="row mt-3 mx-auto">
+                        <button class="btn btn-lg congratulationButton btn-color" onclick="javascript:window.location.href='/'">Study Again!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 </div>
 
 {% endblock %}
