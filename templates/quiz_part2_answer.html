@@ -12,8 +12,7 @@
     let progress_bar = {{progress_bar|tojson}};
     let format = {{question.format|tojson}};
     let answer = {{answer|tojson}};
-    let is_correct = {{is_correct|tojson}}
-    console.log(answer.cells);
+    let part2_correct = {{part2_correct|tojson}}
 </script>
 <div>
     <div class="progressBarModal">
@@ -26,7 +25,7 @@
         <h5 class="card-title mx-auto">Question {{id}} Part 2 Answer</h5>
         <div class="ml-sm-2 pl-sm-2 pt-2">
             <div class="py-2 h5 vertical-center"><b>Cells that indicate the correct technique: </b> </div>
-            {% if is_correct %}
+            {% if part2_correct == true %}
             <div class="alert alert-success" role="alert">
                 <h4 class="alert-heading">Correct!</h4>
                 <hr>
@@ -43,7 +42,6 @@
             <div class="py-2 h5"><b>Correct answer is:</b></div>
             <div id="correctTableContainer"></div>
 
-            <div class="ml-md-3 ml-sm-3 pl-md-1 pt-sm-0 pt-3" id="tableContainer"></div>
             <div  class="row ml-md-3 ml-sm-3 pl-md-1 pt-4">
                 <button class="btn btn-primary mt-3 mr-3" id="next">Next Question</button>
                 <button class="btn btn-primary mt-3" id="review">Review Concept</button>
