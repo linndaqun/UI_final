@@ -69,7 +69,8 @@ learns_data = [
             ]
         },
         {
-            'title': 'Naked pair & Hidden pair',
+            'title': 'Hidden pair',
+            'subtitle': 'Naked pair & Hidden pair',
             'text': """
                 If we put Naked pair and Hidden pair together, we can conclude that:<br>
                 Within the same house, <br>if <b>2 cells only have the same 2 candidates (naked pair)</b> or <b>the 2 candidates only appear in 2 cells (hidden pair)</b>, <br>then these 2 candidates have to be in these 2 cells, <br>so we can remove <b>these 2 candidates in other cells</b> or <b>other candidates in these two cells</b><br>

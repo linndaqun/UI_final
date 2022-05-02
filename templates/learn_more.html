@@ -13,12 +13,19 @@
 <div class="container">
     {% autoescape off %}
     <div class="row">
+
         <div class="col-md-6">
-            <h2> {{ learn.title }}</h2>
-            {{ learn.text }}
+            <br>
+            <h2 class="card-title">{{ learn.title }}</h2>
+            <div class="cardContainer card">
+                <div class="card-subtitle">{{ learn.subtitle }}</div>
+                <div class="tutorial-text">
+                    {{ learn.text }}
+                </div>
+            </div>
             <br><br>
             <div class="row">
-                <button class="btn btn-primary" id="btn-learn-next"> {{ learn.button_text}} </button>
+                <button class="button-59" role="button" id="btn-learn-next"> {{ learn.button_text}}</button>
             </div>
         </div>
         <div class="col-md-6">
