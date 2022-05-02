@@ -10,21 +10,21 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 accentcolor">
             <div id="home-title">
                 {{ home.title }}
             </div>
         </div>
         <div class="col-md-6">
         <div class="cardContainer card">
-            <h5 class="card-title">Objective</h5>
+            <h5 class="card-title accentcolor">Objective</h5>
             <div class="tutorial-text">
                 {{ home.objective }}
             </div>
         </div>
         <br><br>
         <div class="cardContainer card">
-            <h5 class="card-title">Terms</h5>
+            <h5 class="card-title accentcolor">Terms</h5>
             <div class="tutorial-text">
                 <ul>
                     {% for term1, term2 in home.terms %}
