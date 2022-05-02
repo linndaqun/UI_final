@@ -16,10 +16,21 @@
   font-size: 25px;
   font-family: 'Gotham Rounded', sans-serif;
 }
+.white {
+    color: white;
+}
 
 #btn-home-start {
 }
 
+.navbar-brand {
+    font-size: 30px;
+    font-family: 'Gotham Rounded', sans-serif;
+}
+
+.navbar-nav {
+    font-family: 'Gotham Rounded', sans-serif;
+}
 
 
 #block-under-image {
@@ -193,7 +204,7 @@ td.clickable_item:active {
 }
 
 .progress-bar {
-    background-color: #00acee;
+    background-color: hsl(340deg 100% 32%) 8%;
 }
 
 .vertical-center {
