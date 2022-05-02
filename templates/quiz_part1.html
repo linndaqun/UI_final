@@ -29,8 +29,8 @@
 <div>
 <!--    <div class="row">Progress: {{id}} / 6</div>-->
     <div class="progressBarModal">
-        <div class="progress progress-lg mx-auto mt-sm-5" style="width: 80%;">
-            <div class="progress-bar" role="progressbar" style="width: {{progress_bar}}%; font-size: 120%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="6"><b>Progress: {{id}} / 6</b></div>
+        <div class="progress progress-lg mx-auto mt-sm-5" style="width: 80%; height: 30px;">
+            <div class="progress-bar  bg-success" role="progressbar" style="width: {{progress_bar}}%; font-size: 150%;" aria-valuenow="1" aria-valuemin="0" aria-valuemax="6"><b>Progress: {{id}} / 6</b></div>
         </div>
     </div>
 
@@ -54,8 +54,8 @@
 
             <div class="ml-md-3 ml-sm-3 pl-md-1 pt-sm-0 pt-3" id="tableContainer"></div>
         <div  class="row ml-md-3 ml-sm-3 pl-md-1 pt-4">
-            <button class="btn btn-primary mr-5" id="submit">Submit</button>
-            <button class="btn btn-primary" data-toggle="popover" data-trigger="focus" title="Hint" data-content="{{solution.hint}}" >Give me a hint!</button>
+            <button class="btn btn-color normalButton mr-5" id="submit">Submit</button>
+            <button class="btn btn-color normalButton" data-toggle="popover" data-trigger="focus" title="Hint" data-content="{{solution.hint}}" >Give me a hint!</button>
         </div>
     </div>
 
