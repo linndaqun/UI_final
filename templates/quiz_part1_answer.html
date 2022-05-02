@@ -25,7 +25,7 @@
     </div>
 
     <div class="cardContainer card mt-sm-5 mb-sm-5 my-1 mx-auto">
-        <h5 class="card-title mx-auto">Question {{id}} Part 1 Answer</h5>
+        <h5 class="black-title mx-auto">Question {{id}} Part 1 Answer</h5>
         <div class="ml-sm-2 pl-sm-2 pt-2">
             <div class="py-2 h5"><b>Q1. The technique to solve this quzzle:</b></div>
             {% if answer.pattern == solution.pattern %}
@@ -64,9 +64,9 @@
             </div>
             {% endif %}
             <div class="py-2 h5"><b>Your answer is:</b></div>
-            <div id="tableContainer"></div>
+            <div id="tableContainer" class="table-responsive"></div>
             <div class="py-2 h5"><b>Correct answer is:</b></div>
-            <div id="correctTableContainer"></div>
+            <div id="correctTableContainer" class="table-responsive"></div>
 
 <!--            <div class="ml-md-3 ml-sm-3 pl-md-1 pt-sm-0 pt-3" id="tableContainer"></div>-->
             <div  class="row ml-md-3 ml-sm-3 pl-md-1 pt-4">

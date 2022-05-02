@@ -16,26 +16,39 @@
 
         <div class="col-md-6">
             <br>
-            <h2 class="card-title">{{ learn.title }}</h2>
-            <div class="cardContainer card">
-                <div class="card-subtitle">{{ learn.subtitle }}</div>
-                <div class="tutorial-text">
-                    {{ learn.text }}
+            <div class="row">
+                <div class="col-md-12">
+                    <h2 class="card-title">{{ learn.title }}</h2>
                 </div>
             </div>
-            <br><br>
-            <div class="container">
-                <div class="row">
-                    <button class="button-59" role="button" id="btn-learn-next"> {{ learn.button_text}}</button>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="cardContainer card">
+                        <div class="card-subtitle">{{ learn.subtitle }}</div>
+                        <div class="tutorial-text">
+                            {{ learn.text }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <button class="button-82-pushable mt-3 mb-4 float-left" role="button" id="btn-learn-next">
+                        <span class="button-82-shadow"></span>
+                        <span class="button-82-edge"></span>
+                        <span class="button-82-front text">
+                            {{ learn.button_text }}
+                        </span>
+                    </button>
                 </div>
             </div>
 
         </div>
-        <div class="col-md-6">
+        <div class="col-md-6 my-3 pt-3">
             {% for img in learn.imgs %}
                 <div>
-                    <img class='d-block w-50' alt='...' src={{ img.img_url }}>
-                    <div style="margin-left: 80px; font-size: large; font-weight: bold">
+                    <div><img class='d-block w-50' alt='...' src={{ img.img_url }}></div>
+                    <div style="text-align: center; font-size: large; font-weight: bold">
                        {{ img.description }}
                     </div>
                     <br><br>

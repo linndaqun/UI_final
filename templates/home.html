@@ -1,99 +1,102 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<script>
-    var home = {{home|tojson}}
-    console.log(home)
-</script>
+    <script>
+        var home =
+        {{home|tojson}}
+        {#console.log(home)#}
+    </script>
 
-<script type="text/javascript" src="{{ url_for('static', filename = 'home.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename = 'home.js') }}"></script>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-12 accentcolor mt-3 mb-3">
-            <div id="home-title">
-                {{ home.title }}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 accentcolor mt-3 mb-3">
+                <div id="home-title">
+                    {{ home.title }}
+                </div>
             </div>
-        </div>
-        <div class="col-md-6">
-        <div class="cardContainer card">
-            <h5 class="card-title">Objective</h5>
-            <div class="tutorial-text">
-                {{ home.objective }}
+            <div class="col-md-6">
+                <div class="cardContainer card">
+                    <h5 class="card-subtitle">Objective</h5>
+                    <div class="tutorial-text">
+                        {{ home.objective }}
+                    </div>
+                </div>
+                <br><br>
+                <div class="cardContainer card">
+                    <h5 class="card-subtitle">Terms</h5>
+                    <div class="tutorial-text">
+                        <ul>
+                            {% for term1, term2 in home.terms %}
+                                <li>
+                                    {{ term1 }}: {{ term2 }}
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 text-center">
+                <div id="home-image">
+                    <img src={{ home.img_url }} width="300" height="300" alt="sudoku.jpg">
+                </div>
+
             </div>
         </div>
         <br><br>
-        <div class="cardContainer card">
-            <h5 class="card-title">Terms</h5>
-            <div class="tutorial-text">
-                <ul>
-                    {% for term1, term2 in home.terms %}
-                        <li>
-                            {{ term1 }}: {{ term2 }}
-                        </li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-        </div>
-        <div class="col-md-6 text-center">
-            <div id="home-image">
-                <img src={{ home.img_url }} width="300" height="300">
-            </div>
+        <div class="row text-center">
+            <div class="col-md-2">
 
+            </div>
+            <div class="col-md-2 text-center">
+                <div class="circle" style="margin-left: 20px;">
+                    1
+                </div>
+                <div class="circle-text-below  mt-3 mb-3">
+                    {{ home.patterns[0] }}
+                </div>
+            </div>
+            <div class="col-md-1">
+                <div class="home-link-line">
+
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="circle" style="margin-left: 20px;">
+                    2
+                </div>
+                <div class="circle-text-below  mt-3 mb-3">
+                    {{ home.patterns[1] }}
+                </div>
+
+            </div>
+            <div class="col-md-1">
+                <div class="home-link-line">
+                </div>
+            </div>
+            <div class="col-md-2" style="margin-left: 20px;">
+                <div class="circle">
+                    3
+                </div>
+                <div class="circle-text-below  mt-3 mb-3">
+                    {{ home.patterns[2] }}
+                </div>
+            </div>
+            <div class="col-md-2">
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <button class="button-82-pushable mt-2 mb-4" role="button" id="btn-home-start">
+                    <span class="button-82-shadow"></span>
+                    <span class="button-82-edge"></span>
+                    <span class="button-82-front text">
+                        Start to learn
+                    </span>
+                </button>
+            </div>
         </div>
     </div>
-    <br><br>
-    <div class="row">
-        <div class="col-md-2">
-
-        </div>
-        <div class="col-md-2 text-center">
-            <div class="circle" style="margin-left: 20px;">
-                1
-            </div>
-            <div class="circle-text-below  mt-3 mb-3">
-                {{ home.patterns[0] }}
-            </div>
-        </div>
-        <div class="col-md-1">
-            <div class="home-link-line">
-
-            </div>
-        </div>
-        <div class="col-md-2">
-            <div class="circle" style="margin-left: 20px;">
-                2
-            </div>
-            <div class="circle-text-below  mt-3 mb-3">
-                {{ home.patterns[1] }}
-            </div>
-
-        </div>
-        <div class="col-md-1">
-            <div class="home-link-line">
-            </div>
-        </div>
-        <div class="col-md-2" style="margin-left: 20px;">
-            <div class="circle">
-                3
-            </div>
-            <div class="circle-text-below  mt-3 mb-3">
-                {{ home.patterns[2] }}
-            </div>
-        </div>
-        <div class="col-md-2">
-
-        </div>
-    </div>
-    <div class="row">
-        <button class="button-82-pushable mt-2 mb-4" role="button" id="btn-home-start">
-            <span class="button-82-shadow"></span>
-            <span class="button-82-edge"></span>
-            <span class="button-82-front text">
-                Start to learn
-            </span>
-        </button>
-    </div>
-</div>
 {% endblock %}
