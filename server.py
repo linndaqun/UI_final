@@ -260,7 +260,6 @@ def learn_more_page(learn_id, cur_page):
 @app.route('/quiz', methods=['GET', 'POST'])
 def quiz():
     global progress
-    print(progress)
     if progress[0] == 1 and progress[1] == 1:
         return render_template('quiz.html')
     else:
@@ -276,7 +275,6 @@ def part1(id):
     question = questions[id]
     solution = solutions[id]["part1"]
     progressBar = str(int(id) * 16.66)
-    print(progressBar)
     return render_template('quiz_part1.html', id=id, question=question, solution=solution, progress_bar=progressBar)
 
 
@@ -312,7 +310,6 @@ def quiz_part1(id):
         part1_correct = 'true'
 
     progress = (progress[0], 2)
-    print(part1_correct)
 
     return render_template('quiz_part1.html', id=id, question=question, progress_bar=progress, solution=solution)
 
@@ -325,7 +322,6 @@ def answer_part1(id):
     question = questions[id]
     answer = user_answers[id]["part1"]
     progressBar = str(int(id) * 16.66)
-    print(part1_correct)
     return render_template('quiz_part1_answer.html', id=id, solution=solution, question=question, answer=answer,
                            progress_bar=progressBar, part1_correct=part1_correct)
 
@@ -357,12 +353,9 @@ def quiz_part2(id):
         json_data = request.get_json()
         user_answer = user_answers[id]["part2"]
         user_answer['cells'] = json_data['cells']
-        print(json_data['cells'])
         solution = solutions[id]["part2"]
         correct = 0
 
-        print(user_answer['cells'])
-        print(solution['cells'])
         if len(user_answer['cells']) == len(solution['cells']):
             for cell in user_answer['cells']:
                 if cell in solution['cells']:
@@ -370,13 +363,9 @@ def quiz_part2(id):
         if correct == solution['correct']:
             user_score.add(str(id) + 'part2')
             part2_correct = 'true'
-            print(part2_correct)
-        print(user_score)
 
     if progress[0] != 6:
-        print(progress)
         progress = (progress[0] + 1, 1)
-        print(progress)
     progressBar = str(int(id) * 16.66)
     return render_template('quiz_part2.html', id=id, question=question, solution1=solution1, solution2=solution2,
                            progress_bar=progressBar)
@@ -392,7 +381,6 @@ def answer_part2(id):
     question = questions[id]
     answer = user_answers[id]["part2"]
     progressBar = str(int(id) * 16.66)
-    print(part2_correct)
     return render_template('quiz_part2_answer.html', id=id, solution1=solution1, solution2=solution2, question=question,
                            answer=answer, progress_bar=progressBar, part2_correct=part2_correct)
 

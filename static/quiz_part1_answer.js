@@ -87,28 +87,6 @@ function generateAnswerGrid() {
     return grid;
 }
 
-// function judgePattern() {
-//     if (answer.pattern === solution.pattern) {
-//         $("#pattern_feedback").append("You got this right!");
-//         $("#pattern_feedback").css("color", "green");
-//     } else {
-//         $("#pattern_feedback").append("You didn't choose the correct pattern, see the following explanation:");
-//         $("#pattern_feedback").css("color", "red");
-//     }
-// }
-//
-// function judgePattern2() {
-//     console.log('This is is correct:');
-//     console.log(is_correct);
-//     if (is_correct === 'true') {
-//         $("#pattern_feedback2").append("You got this right!");
-//         $("#pattern_feedback2").css("color", "green");
-//     } else {
-//         $("#pattern_feedback2").append("You didn't choose the correct cell(s), see the following explanation:");
-//         $("#pattern_feedback2").css("color", "red");
-//     }
-// }
-
 function review() {
     let pattern = solution.pattern;
     if (pattern === "Naked Pair") {
@@ -124,9 +102,6 @@ function review() {
 }
 
 $(document).ready(function () {
-
-    // judgePattern();
-    // judgePattern2();
     $("#tableContainer").append(generateAnswerGrid());
     $("#correctTableContainer").append(generateSolutionGrid());
     $("#next").click(function () {

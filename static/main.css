@@ -234,8 +234,8 @@ td.clickable_item:active {
   -webkit-user-select: none;
   touch-action: manipulation;
   margin-top: 30px;
-  position: absolute;
-  left: 44%;
+  position: relative;
+  left: 40%;
 }
 
 .button-82-shadow {
@@ -263,10 +263,10 @@ td.clickable_item:active {
   border-radius: 12px;
   background: linear-gradient(
     to left,
-    hsl(340deg 100% 16%) 0%,
-    hsl(340deg 100% 32%) 8%,
-    hsl(340deg 100% 32%) 92%,
-    hsl(340deg 100% 16%) 100%
+    hsl(216deg 100% 8%) 0%,
+    hsl(216deg 100% 32%) 8%,
+    hsl(216deg 100% 32%) 92%,
+    hsl(216deg 100% 16%) 100%
   );
 }
 
@@ -279,7 +279,9 @@ td.clickable_item:active {
   font-family: "Gill Sans", sans-serif;
   font-weight: bold;
   color: white;
-  background: hsl(345deg 100% 47%);
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
   will-change: transform;
   transform: translateY(-4px);
   transition:
@@ -292,12 +294,18 @@ td.clickable_item:active {
   .button-82-front {
     font-size: 1.25rem;
     padding: 12px 42px;
+    border-color: #06f;
+  color: #06f;
+  fill: #06f;
   }
 }
 
 .button-82-pushable:hover {
   filter: brightness(110%);
   -webkit-filter: brightness(110%);
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
 }
 
 .button-82-pushable:hover .button-82-front {
@@ -306,11 +314,17 @@ td.clickable_item:active {
     transform
     250ms
     cubic-bezier(.3, .7, .4, 1.5);
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
 }
 
 .button-82-pushable:active .button-82-front {
   transform: translateY(-2px);
   transition: transform 34ms;
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
 }
 
 .button-82-pushable:hover .button-82-shadow {
@@ -319,15 +333,24 @@ td.clickable_item:active {
     transform
     250ms
     cubic-bezier(.3, .7, .4, 1.5);
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
 }
 
 .button-82-pushable:active .button-82-shadow {
   transform: translateY(1px);
   transition: transform 34ms;
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
 }
 
 .button-82-pushable:focus:not(:focus-visible) {
   outline: none;
+  border-color: #06f;
+  color: #06f;
+  fill: #06f;
 }
 
 
@@ -383,5 +406,12 @@ td.clickable_item:active {
 @media (min-width: 768px) {
   .button-59 {
     min-width: 170px;
+    border-color: #06f;
+    color: #06f;
+    fill: #06f;
   }
+}
+
+.basecolor{
+  background-color: rgb(255, 255, 205);
 }

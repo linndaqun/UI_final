@@ -106,17 +106,6 @@ function generateAnswerGrid() {
     return grid;
 }
 
-// function judgePattern(){
-//     if (is_correct == 'true'){
-//         $( "#pattern_feedback").append( "You got this right!" );
-//         $( "#pattern_feedback").css("color", "green");
-//     }
-//     else {
-//         $( "#pattern_feedback").append( "You didn't choose the correct candidate(s) to eliminate, see the following explanation:" );
-//         $( "#pattern_feedback").css("color", "red");
-//     }
-// }
-
 function review(){
     let pattern = solution1.pattern;
     if (pattern == "Naked Pair") {
